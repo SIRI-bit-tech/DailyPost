@@ -1,16 +1,12 @@
-{  
-  "$schema": "https://railway.app/railway.schema.json",  
-  "build": {  
-    "builder": "NIXPACKS",  
-    "buildCommand": "python manage.py collectstatic --noinput"  
-  },  
-  "deploy": {  
-    "startCommand": "PYTHONDONTWRITEBYTECODE=1 gunicorn dailyrecord.wsgi --log-file -",  
-    "restartPolicyType": "ON_FAILURE",  
-    "restartPolicyMaxRetries": 10,
-    "releaseCommand": "bash release.sh"
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "pip install --upgrade pip && pip install -r requirements.txt && python manage.py collectstatic --noinput"
   },
-  "variables": {
-    "PYTHONDONTWRITEBYTECODE": "1"
+  "deploy": {
+    "startCommand": "PYTHONDONTWRITEBYTECODE=1 gunicorn dailyrecord.wsgi --log-file -",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
   }
 }
