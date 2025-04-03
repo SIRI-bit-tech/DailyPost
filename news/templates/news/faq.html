@@ -1,0 +1,496 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block meta_keywords %}frequently asked questions, FAQs, help, support, questions and answers, the daily record post help{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 fw-bold mb-4">Frequently Asked Questions</h1>
+            <p class="lead">Find answers to the most common questions about The Daily Record Post</p>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="row mb-5">
+        <div class="col-lg-6 mx-auto">
+            <div class="input-group mb-3">
+                <input type="text" id="faq-search" class="form-control form-control-lg" placeholder="Search for answers...">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Categories -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="d-flex justify-content-center flex-wrap">
+                <button class="btn btn-outline-primary m-2 faq-category active" data-category="all">All</button>
+                <button class="btn btn-outline-primary m-2 faq-category" data-category="account">Account</button>
+                <button class="btn btn-outline-primary m-2 faq-category" data-category="content">Content</button>
+                <button class="btn btn-outline-primary m-2 faq-category" data-category="subscription">Subscription</button>
+                <button class="btn btn-outline-primary m-2 faq-category" data-category="technical">Technical</button>
+                <button class="btn btn-outline-primary m-2 faq-category" data-category="billing">Billing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Accordions -->
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Account Questions -->
+            <div class="mb-5 faq-section" data-category="account">
+                <h2 class="h3 mb-4">Account & Registration</h2>
+                <div class="accordion shadow-sm" id="accountFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="accountHeading1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapse1" aria-expanded="true" aria-controls="accountCollapse1">
+                                How do I create an account?
+                            </button>
+                        </h3>
+                        <div id="accountCollapse1" class="accordion-collapse collapse show" aria-labelledby="accountHeading1" data-bs-parent="#accountFAQ">
+                            <div class="accordion-body">
+                                <p>To create an account on The Daily Record Post:</p>
+                                <ol>
+                                    <li>Click the "Sign Up" button in the top right corner of any page</li>
+                                    <li>Enter your email address, create a password, and provide your name</li>
+                                    <li>Check your email for a verification link</li>
+                                    <li>Click the link to verify your account</li>
+                                </ol>
+                                <p>Once verified, you can log in and access your account dashboard, manage your profile, and engage with our content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="accountHeading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapse2" aria-expanded="false" aria-controls="accountCollapse2">
+                                How do I reset my password?
+                            </button>
+                        </h3>
+                        <div id="accountCollapse2" class="accordion-collapse collapse" aria-labelledby="accountHeading2" data-bs-parent="#accountFAQ">
+                            <div class="accordion-body">
+                                <p>If you've forgotten your password:</p>
+                                <ol>
+                                    <li>Click "Log In" in the top right corner</li>
+                                    <li>Select "Forgot password?" below the login form</li>
+                                    <li>Enter the email address associated with your account</li>
+                                    <li>Check your email for password reset instructions</li>
+                                    <li>Follow the link to create a new password</li>
+                                </ol>
+                                <p>If you don't receive the password reset email within a few minutes, check your spam folder or contact our support team for assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="accountHeading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapse3" aria-expanded="false" aria-controls="accountCollapse3">
+                                How do I update my profile information?
+                            </button>
+                        </h3>
+                        <div id="accountCollapse3" class="accordion-collapse collapse" aria-labelledby="accountHeading3" data-bs-parent="#accountFAQ">
+                            <div class="accordion-body">
+                                <p>To update your profile information:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Click on your profile picture or name in the top right corner</li>
+                                    <li>Select "Profile Settings" from the dropdown menu</li>
+                                    <li>Edit your personal information, profile picture, or notification preferences</li>
+                                    <li>Click "Save Changes" when you're done</li>
+                                </ol>
+                                <p>You can update your name, email address, profile picture, and notification preferences at any time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Questions -->
+            <div class="mb-5 faq-section" data-category="content">
+                <h2 class="h3 mb-4">Content & Editorial</h2>
+                <div class="accordion shadow-sm" id="contentFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="contentHeading1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#contentCollapse1" aria-expanded="true" aria-controls="contentCollapse1">
+                                How often is content updated?
+                            </button>
+                        </h3>
+                        <div id="contentCollapse1" class="accordion-collapse collapse show" aria-labelledby="contentHeading1" data-bs-parent="#contentFAQ">
+                            <div class="accordion-body">
+                                <p>The Daily Record Post publishes new content throughout the day, seven days a week. Our editorial team works around the clock to ensure you have access to the latest news and analysis as events unfold.</p>
+                                <p>Feature articles and in-depth analysis pieces are typically published during weekday mornings, while breaking news is posted as it happens. We update our homepage several times daily to reflect the most important stories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="contentHeading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contentCollapse2" aria-expanded="false" aria-controls="contentCollapse2">
+                                How do I report an error in an article?
+                            </button>
+                        </h3>
+                        <div id="contentCollapse2" class="accordion-collapse collapse" aria-labelledby="contentHeading2" data-bs-parent="#contentFAQ">
+                            <div class="accordion-body">
+                                <p>We take accuracy very seriously and appreciate your help in maintaining our journalistic standards. To report an error:</p>
+                                <ol>
+                                    <li>Scroll to the bottom of the article in question</li>
+                                    <li>Click the "Report a Correction" link</li>
+                                    <li>Fill out the form detailing the error</li>
+                                    <li>Submit your correction request</li>
+                                </ol>
+                                <p>Alternatively, you can email corrections directly to <a href="mailto:corrections@dailyrecordpost.com">corrections@dailyrecordpost.com</a> with the article title and a description of the error.</p>
+                                <p>Our editorial team reviews all correction requests promptly, and we will update the article with a correction notice if warranted.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="contentHeading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contentCollapse3" aria-expanded="false" aria-controls="contentCollapse3">
+                                How can I submit a story idea or news tip?
+                            </button>
+                        </h3>
+                        <div id="contentCollapse3" class="accordion-collapse collapse" aria-labelledby="contentHeading3" data-bs-parent="#contentFAQ">
+                            <div class="accordion-body">
+                                <p>We welcome news tips and story ideas from our readers. You can submit them in several ways:</p>
+                                <ul>
+                                    <li>Use our <a href="{% url 'news:submit_news' %}">Submit News form</a> for detailed submissions</li>
+                                    <li>Email tips directly to <a href="mailto:tips@dailyrecordpost.com">tips@dailyrecordpost.com</a></li>
+                                    <li>For sensitive information requiring confidentiality, you can use our secure tip line: <a href="tel:+15551234567">(555) 123-4567</a></li>
+                                </ul>
+                                <p>Our editorial team reviews all submissions, though we cannot guarantee that every tip will result in a published story. If we pursue your story idea, a reporter may contact you for additional information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Questions -->
+            <div class="mb-5 faq-section" data-category="subscription">
+                <h2 class="h3 mb-4">Subscription & Membership</h2>
+                <div class="accordion shadow-sm" id="subscriptionFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="subscriptionHeading1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#subscriptionCollapse1" aria-expanded="true" aria-controls="subscriptionCollapse1">
+                                What subscription plans are available?
+                            </button>
+                        </h3>
+                        <div id="subscriptionCollapse1" class="accordion-collapse collapse show" aria-labelledby="subscriptionHeading1" data-bs-parent="#subscriptionFAQ">
+                            <div class="accordion-body">
+                                <p>The Daily Record Post offers several subscription options to meet your needs:</p>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Plan</th>
+                                                <th>Price</th>
+                                                <th>Features</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Basic Digital</strong></td>
+                                                <td>$9.99/month</td>
+                                                <td>Unlimited article access, mobile app, and daily newsletter</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Premium Digital</strong></td>
+                                                <td>$14.99/month</td>
+                                                <td>All Basic features plus exclusive content, ad-free experience, and archive access</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Annual Premium</strong></td>
+                                                <td>$149.99/year</td>
+                                                <td>All Premium features at a 17% discount</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>All plans come with a 7-day free trial, and we offer educational and non-profit discounts. Visit our <a href="#">Subscription page</a> for more details and current promotions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="subscriptionHeading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#subscriptionCollapse2" aria-expanded="false" aria-controls="subscriptionCollapse2">
+                                How do I cancel my subscription?
+                            </button>
+                        </h3>
+                        <div id="subscriptionCollapse2" class="accordion-collapse collapse" aria-labelledby="subscriptionHeading2" data-bs-parent="#subscriptionFAQ">
+                            <div class="accordion-body">
+                                <p>To cancel your subscription:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Go to your Account Settings</li>
+                                    <li>Select "Subscription Management"</li>
+                                    <li>Click "Cancel Subscription"</li>
+                                    <li>Follow the prompts to complete the cancellation</li>
+                                </ol>
+                                <p>You can cancel at any time, and your subscription will remain active until the end of your current billing period. We do not offer partial refunds for unused portions of your subscription.</p>
+                                <p>If you experience any issues with cancellation, please contact our customer service team at <a href="mailto:subscriptions@dailyrecordpost.com">subscriptions@dailyrecordpost.com</a> or call (555) 123-4569.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="subscriptionHeading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#subscriptionCollapse3" aria-expanded="false" aria-controls="subscriptionCollapse3">
+                                Can I share my subscription with family members?
+                            </button>
+                        </h3>
+                        <div id="subscriptionCollapse3" class="accordion-collapse collapse" aria-labelledby="subscriptionHeading3" data-bs-parent="#subscriptionFAQ">
+                            <div class="accordion-body">
+                                <p>Yes, our Premium Digital and Annual Premium plans include family sharing for up to 5 members living in the same household. To add family members:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Go to Account Settings</li>
+                                    <li>Select "Family Sharing"</li>
+                                    <li>Enter the email addresses of your family members</li>
+                                    <li>They will receive invitations to create their own linked accounts</li>
+                                </ol>
+                                <p>Each family member will have their own login credentials and personalized experience but will share the same subscription benefits. Our terms of service prohibit sharing account access beyond your immediate household.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div class="mb-5 faq-section" data-category="technical">
+                <h2 class="h3 mb-4">Technical Support</h2>
+                <div class="accordion shadow-sm" id="technicalFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="technicalHeading1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapse1" aria-expanded="true" aria-controls="technicalCollapse1">
+                                How do I clear my reading history?
+                            </button>
+                        </h3>
+                        <div id="technicalCollapse1" class="accordion-collapse collapse show" aria-labelledby="technicalHeading1" data-bs-parent="#technicalFAQ">
+                            <div class="accordion-body">
+                                <p>To clear your reading history on The Daily Record Post:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Click your profile picture or name in the top right corner</li>
+                                    <li>Select "Reading History" from the dropdown menu</li>
+                                    <li>Click the "Clear All History" button at the top of the page</li>
+                                    <li>Confirm your choice when prompted</li>
+                                </ol>
+                                <p>You can also remove individual articles from your history by clicking the "X" next to each item. Your reading history is private and used to provide you with personalized recommendations and to resume reading where you left off.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="technicalHeading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapse2" aria-expanded="false" aria-controls="technicalCollapse2">
+                                Why am I seeing an error when trying to access articles?
+                            </button>
+                        </h3>
+                        <div id="technicalCollapse2" class="accordion-collapse collapse" aria-labelledby="technicalHeading2" data-bs-parent="#technicalFAQ">
+                            <div class="accordion-body">
+                                <p>If you're experiencing errors when trying to access articles, try these troubleshooting steps:</p>
+                                <ul>
+                                    <li><strong>Check your internet connection</strong> - Make sure you have a stable connection</li>
+                                    <li><strong>Clear your browser cache</strong> - Old cached data can sometimes cause conflicts</li>
+                                    <li><strong>Try a different browser</strong> - This can help identify if the issue is browser-specific</li>
+                                    <li><strong>Disable browser extensions</strong> - Some ad blockers or privacy extensions can interfere with our site</li>
+                                    <li><strong>Log out and log back in</strong> - This refreshes your session credentials</li>
+                                </ul>
+                                <p>If you're still experiencing issues, please contact our technical support team at <a href="mailto:support@dailyrecordpost.com">support@dailyrecordpost.com</a> with details about the error, your device, browser, and steps to reproduce the problem.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="technicalHeading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapse3" aria-expanded="false" aria-controls="technicalCollapse3">
+                                How do I access The Daily Record Post on my mobile device?
+                            </button>
+                        </h3>
+                        <div id="technicalCollapse3" class="accordion-collapse collapse" aria-labelledby="technicalHeading3" data-bs-parent="#technicalFAQ">
+                            <div class="accordion-body">
+                                <p>You can access The Daily Record Post on your mobile device in two ways:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h4 class="h5">Mobile Website</h4>
+                                                <p>Visit <strong>dailyrecordpost.com</strong> in your mobile browser. Our responsive website adapts to any screen size and offers the complete experience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h4 class="h5">Mobile App</h4>
+                                                <p>Download our dedicated app for a better mobile experience with offline reading and push notifications:</p>
+                                                <div class="d-flex">
+                                                    <a href="#" class="me-2"><img src="{% static 'news/images/app-store-badge.png' %}" alt="Download on the App Store" height="40" onerror="this.src='{% static 'news/images/placeholder.png' %}'; this.style='height:40px;'"></a>
+                                                    <a href="#"><img src="{% static 'news/images/play-store-badge.png' %}" alt="Get it on Google Play" height="40" onerror="this.src='{% static 'news/images/placeholder.png' %}'; this.style='height:40px;'"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Both options provide access to all our content, but the app offers additional features like offline reading, personalized notifications, and a more seamless experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Questions -->
+            <div class="mb-5 faq-section" data-category="billing">
+                <h2 class="h3 mb-4">Billing & Payments</h2>
+                <div class="accordion shadow-sm" id="billingFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="billingHeading1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#billingCollapse1" aria-expanded="true" aria-controls="billingCollapse1">
+                                What payment methods do you accept?
+                            </button>
+                        </h3>
+                        <div id="billingCollapse1" class="accordion-collapse collapse show" aria-labelledby="billingHeading1" data-bs-parent="#billingFAQ">
+                            <div class="accordion-body">
+                                <p>We accept the following payment methods for subscriptions and purchases:</p>
+                                <ul>
+                                    <li><strong>Credit/Debit Cards</strong>: Visa, Mastercard, American Express, and Discover</li>
+                                    <li><strong>Digital Wallets</strong>: Apple Pay, Google Pay, PayPal</li>
+                                    <li><strong>Bank Transfers</strong>: ACH payments (for annual subscriptions only)</li>
+                                </ul>
+                                <p>All transactions are processed securely through our payment provider, and we do not store your complete payment information on our servers. For enterprise or institutional subscriptions, we also accept purchase orders.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="billingHeading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#billingCollapse2" aria-expanded="false" aria-controls="billingCollapse2">
+                                How do I update my payment information?
+                            </button>
+                        </h3>
+                        <div id="billingCollapse2" class="accordion-collapse collapse" aria-labelledby="billingHeading2" data-bs-parent="#billingFAQ">
+                            <div class="accordion-body">
+                                <p>To update your payment information:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Go to Account Settings</li>
+                                    <li>Select "Billing Information"</li>
+                                    <li>Click "Edit Payment Method"</li>
+                                    <li>Enter your new payment details</li>
+                                    <li>Click "Save Changes"</li>
+                                </ol>
+                                <p>Your updated payment method will be used for future billing cycles. If your current payment method is expiring or has been declined, we'll send you an email notification prompting you to update your information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="billingHeading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#billingCollapse3" aria-expanded="false" aria-controls="billingCollapse3">
+                                How do I get a receipt for my subscription?
+                            </button>
+                        </h3>
+                        <div id="billingCollapse3" class="accordion-collapse collapse" aria-labelledby="billingHeading3" data-bs-parent="#billingFAQ">
+                            <div class="accordion-body">
+                                <p>Receipts are automatically emailed to you each time your subscription renews. To access past receipts:</p>
+                                <ol>
+                                    <li>Log into your account</li>
+                                    <li>Go to Account Settings</li>
+                                    <li>Select "Billing History"</li>
+                                    <li>Find the transaction you need</li>
+                                    <li>Click "View Receipt" or "Download PDF"</li>
+                                </ol>
+                                <p>For tax or reimbursement purposes, you can also request a formal invoice by contacting our billing department at <a href="mailto:billing@dailyrecordpost.com">billing@dailyrecordpost.com</a> with your account information and the specific time period you need documentation for.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Need More Help -->
+            <div class="card shadow-sm p-4 text-center mb-5">
+                <h2 class="h4 mb-3">Still Have Questions?</h2>
+                <p>If you couldn't find the answer you were looking for, our support team is here to help.</p>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <a href="{% url 'news:contact' %}" class="btn btn-primary w-100">
+                            <i class="fas fa-envelope me-2"></i> Contact Support
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="tel:+15551234567" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-phone me-2"></i> Call Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // FAQ Category Filtering
+        const categoryButtons = document.querySelectorAll('.faq-category');
+        const faqSections = document.querySelectorAll('.faq-section');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show/hide sections
+                if (category === 'all') {
+                    faqSections.forEach(section => section.style.display = 'block');
+                } else {
+                    faqSections.forEach(section => {
+                        if (section.getAttribute('data-category') === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+        
+        // FAQ Search Functionality
+        const searchInput = document.getElementById('faq-search');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            if (searchTerm.length > 1) {
+                // Show all sections when searching
+                faqSections.forEach(section => section.style.display = 'block');
+                
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('[data-category="all"]').classList.add('active');
+                
+                // Search through accordion buttons
+                const accordionButtons = document.querySelectorAll('.accordion-button');
+                accordionButtons.forEach(button => {
+                    const text = button.textContent.toLowerCase();
+                    const accordionItem = button.closest('.accordion-item');
+                    
+                    if (text.includes(searchTerm)) {
+                        accordionItem.style.display = '';
+                        if (searchTerm.length > 2) {
+                            button.classList.remove('collapsed');
+                            const collapseEl = document.getElementById(button.getAttribute('data-bs-target').substring(1));
+                            collapseEl.classList.add('show');
+                        }
+                    } else {
+                        accordionItem.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

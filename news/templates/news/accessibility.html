@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block meta_keywords %}accessibility, accessible news, web accessibility, ADA compliance, WCAG, screen reader support, disability access{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 fw-bold mb-4">Accessibility Statement</h1>
+            <p class="lead">Our commitment to providing an inclusive and accessible experience for all users</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Our Commitment to Accessibility</h2>
+                    <p>At The Daily Record Post, we are committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to achieve this.</p>
+                    
+                    <p>We strive to ensure that our website meets Level AA compliance with the Web Content Accessibility Guidelines (WCAG) 2.1. These guidelines explain how to make web content more accessible for people with disabilities and user-friendly for everyone.</p>
+                    
+                    <p>The guidelines have three levels of accessibility (A, AA, and AAA). We've chosen Level AA as our target for The Daily Record Post website.</p>
+                    
+                    <h3 class="h5 mt-4 mb-3">Features of Our Accessible Website</h3>
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-keyboard text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="h6">Keyboard Navigation</h4>
+                                    <p class="mb-0">Our website is fully navigable using a keyboard for users who cannot use a mouse</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-text-height text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="h6">Resizable Text</h4>
+                                    <p class="mb-0">Text can be resized up to 200% without loss of content or functionality</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-universal-access text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="h6">Screen Reader Compatibility</h4>
+                                    <p class="mb-0">Content is structured for effective navigation with screen readers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-adjust text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h4 class="h6">Color Contrast</h4>
+                                    <p class="mb-0">Sufficient color contrast between text and backgrounds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="h5 mt-4 mb-3">Compliance Status</h3>
+                    <p>We review our website regularly to ensure its accessibility. However, if you experience any problems or have suggestions for improvement, please contact us using one of the methods below.</p>
+                    
+                    <h3 class="h5 mt-4 mb-3">Compatibility with Browsers and Assistive Technologies</h3>
+                    <p>The Daily Record Post website is designed to be compatible with the following assistive technologies:</p>
+                    <ul>
+                        <li>Screen readers (including NVDA, JAWS, VoiceOver, and TalkBack)</li>
+                        <li>Speech recognition software</li>
+                        <li>Screen magnification software</li>
+                        <li>Alternative keyboard and mouse input devices</li>
+                    </ul>
+                    
+                    <p>Our website is also designed to be compatible with the current versions of the following browsers:</p>
+                    <ul>
+                        <li>Google Chrome</li>
+                        <li>Mozilla Firefox</li>
+                        <li>Apple Safari</li>
+                        <li>Microsoft Edge</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Accessibility Features in Our Content</h2>
+                    
+                    <h3 class="h5 mb-3">Alternative Text</h3>
+                    <p>We provide alternative text for all non-decorative images on our website. This allows users with visual impairments to understand the content and context of images using screen readers or other assistive technologies.</p>
+                    
+                    <h3 class="h5 mt-4 mb-3">Video and Audio Content</h3>
+                    <p>We strive to provide transcripts, captions, or audio descriptions for multimedia content to ensure it's accessible to users with hearing or visual impairments.</p>
+                    
+                    <h3 class="h5 mt-4 mb-3">Data Tables</h3>
+                    <p>Tables used on our website include appropriate headers and row/column information to help screen reader users navigate and understand the content effectively.</p>
+                    
+                    <h3 class="h5 mt-4 mb-3">PDFs and Other Documents</h3>
+                    <p>We aim to provide documents in accessible formats. When we create new PDFs or other documents, we work to ensure they are as accessible as possible. If you need any document in an alternative format, please contact us, and we will do our best to assist you.</p>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Limitations & Alternatives</h2>
+                    <p>Despite our best efforts to ensure the accessibility of The Daily Record Post, there may be some limitations. Below is a description of known limitations, and potential solutions:</p>
+                    
+                    <ul>
+                        <li><strong>User-Generated Content:</strong> Comments and user-generated content may not always meet accessibility standards. We encourage our community to consider accessibility when contributing content.</li>
+                        <li><strong>Third-Party Content:</strong> Some content provided by third parties, such as embedded videos or social media posts, may not be fully accessible. We try to provide alternatives where possible.</li>
+                        <li><strong>Older Content:</strong> Some older content published before our current accessibility standards were implemented may not be fully accessible. We're working to update these materials over time.</li>
+                    </ul>
+                    
+                    <p>If you encounter an accessibility barrier on our website, please let us know. We're actively working to improve the accessibility of our content and appreciate your feedback.</p>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Technical Specifications</h2>
+                    <p>The Daily Record Post website relies on the following technologies to work with the particular combination of browser and assistive technology or plugin you are using:</p>
+                    
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>WAI-ARIA</li>
+                        <li>SVG</li>
+                    </ul>
+                    
+                    <p>These technologies are relied upon for conformance with the accessibility standards used.</p>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Contact Us About Accessibility</h2>
+                    <p>We welcome your feedback on the accessibility of The Daily Record Post. Please let us know if you encounter any accessibility barriers on our website:</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card h-100 border-0 bg-light p-3 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-envelope fs-2 text-primary mb-3"></i>
+                                    <h3 class="h6">Email</h3>
+                                    <p class="mb-0"><a href="mailto:accessibility@dailyrecordpost.com">accessibility@dailyrecordpost.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card h-100 border-0 bg-light p-3 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-phone-alt fs-2 text-primary mb-3"></i>
+                                    <h3 class="h6">Phone</h3>
+                                    <p class="mb-0"><a href="tel:+15551234568">(555) 123-4568</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 bg-light p-3 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-comment-alt fs-2 text-primary mb-3"></i>
+                                    <h3 class="h6">Feedback Form</h3>
+                                    <p class="mb-0"><a href="{% url 'news:contact' %}">Contact Us Page</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p>We try to respond to feedback within 2 business days.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h3 mb-4">Assessment and Updates</h2>
+                    <p>We use a combination of automated and manual testing methods to evaluate our website's accessibility:</p>
+                    
+                    <ul>
+                        <li>Automated scanning tools to identify potential accessibility issues</li>
+                        <li>Manual testing with assistive technologies</li>
+                        <li>User testing with individuals who use assistive technologies</li>
+                    </ul>
+                    
+                    <p>This accessibility statement was last updated on <strong>August 15, 2023</strong>. We regularly review and update our accessibility statement as we make improvements to our website.</p>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0 p-4 text-center mb-5">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Resources for Learning More About Web Accessibility</h2>
+                    <p>If you'd like to learn more about digital accessibility, these resources may be helpful:</p>
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-md-4 mb-2 mb-md-0">
+                            <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" class="btn btn-outline-primary w-100" target="_blank" rel="noopener">WCAG Guidelines</a>
+                        </div>
+                        <div class="col-md-4 mb-2 mb-md-0">
+                            <a href="https://www.w3.org/WAI/" class="btn btn-outline-primary w-100" target="_blank" rel="noopener">W3C Web Accessibility Initiative</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="https://www.ada.gov/" class="btn btn-outline-primary w-100" target="_blank" rel="noopener">ADA Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

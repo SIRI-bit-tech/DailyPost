@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Static Pages -->
+    <url>
+        <loc>{{ site_url }}</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:about' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:contact' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:privacy_policy' %}</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:terms' %}</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:sitemap' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Categories -->
+    {% for category in categories %}
+    <url>
+        <loc>{{ site_url }}{% url 'news:category' category.slug %}</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% endfor %}
+
+    <!-- All Articles -->
+    {% for article in articles %}
+    <url>
+        <loc>{{ site_url }}{% url 'news:article_detail' article.slug %}</loc>
+        <lastmod>{{ article.updated_at|date:"Y-m-d" }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {% endfor %}
+
+    <!-- Tags -->
+    {% for tag in tags %}
+    <url>
+        <loc>{{ site_url }}{% url 'news:tag' tag.slug %}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+
+    <!-- Authors -->
+    {% for author in authors %}
+    <url>
+        <loc>{{ site_url }}{% url 'news:author' author.slug %}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+
+    <!-- Archives -->
+    {% for year in years %}
+    <url>
+        <loc>{{ site_url }}{% url 'news:archive_year' year %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+        {% for month in months %}
+        <url>
+            <loc>{{ site_url }}{% url 'news:archive_month' year month %}</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+        </url>
+        {% endfor %}
+    {% endfor %}
+
+    <!-- User Features -->
+    <url>
+        <loc>{{ site_url }}{% url 'news:login' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:register' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:newsletter' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Additional Resources -->
+    <url>
+        <loc>{{ site_url }}{% url 'news:faq' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:advertise' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:careers' %}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ site_url }}{% url 'news:press' %}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset> 

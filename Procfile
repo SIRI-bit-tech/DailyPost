@@ -1,0 +1,1 @@
+web: PYTHONDONTWRITEBYTECODE=1 gunicorn dailyrecord.wsgi --log-file -

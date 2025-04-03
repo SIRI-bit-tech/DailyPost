@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header_banner %}
+<div class="hero-banner">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">The Daily Record Post</h1>
+                <p class="lead">Your trusted source for the latest news, trends, and in-depth analysis.</p>
+                <p>We bring you comprehensive coverage of current events, opinion pieces, and investigative reporting.</p>
+                <a href="{% url 'news:about' %}" class="btn btn-primary btn-lg">Learn More</a>
+            </div>
+            <div class="col-lg-6 text-center d-none d-lg-block">
+                <img src="{% static 'news/images/hero-image.jpg' %}" alt="The Daily Record Post" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Featured Articles -->
+<section class="mb-5">
+    <h2 class="section-title">Featured Articles</h2>
+    <div class="row">
+        {% for article in featured_articles %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    {% if article.featured_image %}
+                        <img src="{{ article.featured_image.url }}" class="card-img-top" alt="{{ article.title }}">
+                    {% else %}
+                        <img src="{% static 'news/images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="badge bg-primary mb-2">{{ article.category.name }}</div>
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text text-muted small">
+                            By <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> | 
+                            {{ article.published_date|date:"F j, Y" }}
+                        </p>
+                        <p class="card-text">{{ article.summary|truncatechars:120 }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="{{ article.get_absolute_url }}" class="btn btn-outline-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No featured articles available at the moment.</div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Latest News -->
+<section>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="section-title mb-0">Latest News</h2>
+        
+        <!-- Categories Quick Filter -->
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter by Category
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                <li><a class="dropdown-item" href="{% url 'news:home' %}">All Categories</a></li>
+                {% for category in categories %}
+                    <li><a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Articles List -->
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            {% if article.featured_image %}
+                                <img src="{{ article.featured_image.url }}" class="img-fluid rounded-start h-100 object-fit-cover" alt="{{ article.title }}">
+                            {% else %}
+                                <img src="{% static 'news/images/placeholder.jpg' %}" class="img-fluid rounded-start h-100 object-fit-cover" alt="Placeholder">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="badge bg-secondary mb-2">{{ article.category.name }}</div>
+                                <h5 class="card-title">{{ article.title }}</h5>
+                                <p class="card-text text-muted small">
+                                    By <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> | 
+                                    {{ article.published_date|date:"F j, Y" }}
+                                </p>
+                                <p class="card-text">{{ article.summary|truncatechars:100 }}</p>
+                                <a href="{{ article.get_absolute_url }}" class="btn btn-link p-0">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No articles available at the moment.</div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if is_paginated %}
+        <nav aria-label="Page navigation" class="my-4">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo; First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo; First</span>
+                    </li>
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                {% endif %}
+                
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                    <li class="page-item disabled">
+                        <span class="page-link">Last &raquo;</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+</section>
+
+<!-- Popular Tags -->
+<section class="mt-5">
+    <h4>Popular Tags</h4>
+    <div class="tags-cloud">
+        {% for tag in popular_tags %}
+            <a href="{{ tag.get_absolute_url }}" class="badge bg-light text-dark text-decoration-none me-2 mb-2 p-2">
+                {{ tag.name }} <span class="badge bg-secondary rounded-pill">{{ tag.num_articles }}</span>
+            </a>
+        {% empty %}
+            <p>No tags available.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

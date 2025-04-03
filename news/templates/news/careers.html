@@ -1,0 +1,469 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Careers | The Daily Record Post{% endblock %}
+
+{% block meta_description %}Join our team at The Daily Record Post. Explore current job openings and career opportunities in journalism, technology, marketing, and more.{% endblock %}
+
+{% block meta_keywords %}careers, jobs, employment, journalism jobs, media careers, work with us{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold mb-4">Careers at The Daily Record Post</h1>
+            <p class="lead">Join our growing team of passionate journalists, technologists, and media professionals</p>
+            <p>At The Daily Record Post, we're building the future of digital journalism. We're looking for talented individuals who are committed to truthful reporting, innovative storytelling, and serving our community with integrity.</p>
+            <a href="#current-openings" class="btn btn-primary btn-lg mt-3">View Current Openings</a>
+        </div>
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'news/images/careers-hero.jpg' %}" alt="Careers at The Daily Record Post" class="img-fluid rounded shadow" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+        </div>
+    </div>
+
+    <!-- Why Join Us -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body p-4">
+            <h2 class="h3 mb-4 text-center">Why Join Our Team?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-star fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Make an Impact</h3>
+                    <p>Your work will reach hundreds of thousands of readers daily, keeping them informed and engaged with critical stories that matter.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-chart-line fa-3x text-success"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Grow Your Career</h3>
+                    <p>We invest in our team with professional development opportunities, mentorship programs, and clear paths for advancement.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-users fa-3x text-info"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Collaborative Culture</h3>
+                    <p>Work alongside talented professionals in a supportive environment that values teamwork, diversity of thought, and innovation.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-laptop fa-3x text-warning"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Digital-First Approach</h3>
+                    <p>Be part of a forward-thinking newsroom that embraces technology and new formats to tell compelling stories.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-balance-scale fa-3x text-danger"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Work-Life Balance</h3>
+                    <p>Enjoy flexible work arrangements, generous paid time off, and policies that support your wellbeing both inside and outside the office.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-heart fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="h5 text-center mb-3">Comprehensive Benefits</h3>
+                    <p>We offer competitive salaries, health insurance, retirement plans, and additional perks to take care of our team members.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Values -->
+    <div class="row mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="card shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h2 class="h3 mb-4">Our Values</h2>
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="fas fa-check-circle text-success me-2"></i> Integrity</h3>
+                        <p>We are committed to truthful, accurate reporting and ethical journalism in everything we do.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="fas fa-check-circle text-success me-2"></i> Excellence</h3>
+                        <p>We strive for the highest standards in our reporting, storytelling, and service to our audience.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="fas fa-check-circle text-success me-2"></i> Innovation</h3>
+                        <p>We embrace new technologies and approaches to better serve our audience in the digital age.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="h5"><i class="fas fa-check-circle text-success me-2"></i> Independence</h3>
+                        <p>We maintain editorial independence and are committed to serving the public interest.</p>
+                    </div>
+                    <div>
+                        <h3 class="h5"><i class="fas fa-check-circle text-success me-2"></i> Inclusivity</h3>
+                        <p>We value diverse perspectives and strive to create a workplace where everyone belongs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h2 class="h3 mb-4">Diversity & Inclusion</h2>
+                    <p>At The Daily Record Post, we believe that diversity in our newsroom leads to better journalism. We're committed to building a team that reflects the communities we serve.</p>
+                    <p>We actively work to create an inclusive environment where all employees feel valued, respected, and empowered to do their best work. We recognize that diverse perspectives enrich our storytelling and strengthen our connection with our audience.</p>
+                    <p>Our commitment to diversity includes:</p>
+                    <ul>
+                        <li>Inclusive hiring practices</li>
+                        <li>Mentorship programs for journalists from underrepresented backgrounds</li>
+                        <li>Regular diversity and inclusion training</li>
+                        <li>Employee resource groups</li>
+                        <li>Partnerships with organizations that promote diversity in journalism</li>
+                    </ul>
+                    <p>We welcome applicants of all backgrounds, and do not discriminate on the basis of race, color, religion, gender, sexual orientation, national origin, age, disability, or any other protected characteristic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Openings -->
+    <h2 class="h3 mb-4" id="current-openings">Current Openings</h2>
+    <div class="row mb-5">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">Full-Time</span>
+                    <h3 class="h4 mb-3">Senior Reporter, Politics</h3>
+                    <p>We're seeking an experienced political reporter to cover national politics with a focus on policy implications for our audience. The ideal candidate has at least 5 years of experience covering politics and elections.</p>
+                    <p><strong>Location:</strong> Washington, DC (Hybrid)</p>
+                    <p><strong>Department:</strong> Editorial</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-success mb-2">Full-Time</span>
+                    <h3 class="h4 mb-3">Technology Editor</h3>
+                    <p>Lead our technology coverage, managing a team of reporters covering consumer tech, enterprise technology, startups, and the impact of technology on society. Minimum 7 years of relevant experience required.</p>
+                    <p><strong>Location:</strong> New York, NY or Remote</p>
+                    <p><strong>Department:</strong> Editorial</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-info mb-2">Full-Time</span>
+                    <h3 class="h4 mb-3">Data Journalist</h3>
+                    <p>Join our investigations team to uncover and tell data-driven stories across various beats. The ideal candidate combines strong reporting skills with data analysis and visualization expertise.</p>
+                    <p><strong>Location:</strong> New York, NY (Hybrid)</p>
+                    <p><strong>Department:</strong> Editorial</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">Contract</span>
+                    <h3 class="h4 mb-3">Video Producer</h3>
+                    <p>Create compelling video content for our digital platforms, working closely with reporters and editors to translate written stories into engaging visual narratives.</p>
+                    <p><strong>Location:</strong> Remote</p>
+                    <p><strong>Department:</strong> Multimedia</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">Full-Time</span>
+                    <h3 class="h4 mb-3">Front-End Developer</h3>
+                    <p>Help build and maintain our digital publishing platform. The ideal candidate has experience with modern JavaScript frameworks, CSS, and responsive design principles.</p>
+                    <p><strong>Location:</strong> New York, NY or Remote</p>
+                    <p><strong>Department:</strong> Technology</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <span class="badge bg-danger mb-2">Internship</span>
+                    <h3 class="h4 mb-3">Editorial Intern, Summer 2024</h3>
+                    <p>Join our newsroom for a paid 10-week internship. Work alongside reporters and editors, pitch and write stories, and gain valuable experience in digital journalism.</p>
+                    <p><strong>Location:</strong> New York, NY</p>
+                    <p><strong>Department:</strong> Editorial</p>
+                    <p class="mb-0"><strong>Posted:</strong> {% now "F j, Y" %}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary">View Details & Apply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Don't See the Right Fit -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body p-4 text-center">
+            <h2 class="h3 mb-3">Don't See the Right Fit?</h2>
+            <p class="mb-4">We're always looking for talented individuals to join our team. Submit your resume for future consideration.</p>
+            <a href="#" class="btn btn-primary">Submit Your Resume</a>
+        </div>
+    </div>
+
+    <!-- Life at The Daily Record Post -->
+    <h2 class="h3 mb-4">Life at The Daily Record Post</h2>
+    <div class="row mb-5">
+        <div class="col-lg-4 mb-4">
+            <img src="{% static 'news/images/office-1.jpg' %}" alt="Our newsroom" class="img-fluid rounded shadow mb-3" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+            <p class="text-center text-muted">Our modern newsroom in New York</p>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <img src="{% static 'news/images/office-2.jpg' %}" alt="Team collaboration" class="img-fluid rounded shadow mb-3" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+            <p class="text-center text-muted">Editorial team collaboration session</p>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <img src="{% static 'news/images/office-3.jpg' %}" alt="Company event" class="img-fluid rounded shadow mb-3" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+            <p class="text-center text-muted">Annual company retreat</p>
+        </div>
+    </div>
+
+    <!-- Employee Testimonials -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body p-4">
+            <h2 class="h3 mb-4 text-center">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="border rounded p-3 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{% static 'news/images/employee-1.jpg' %}" alt="Jessica Chen" class="rounded-circle me-3" width="60" height="60" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                            <div>
+                                <p class="fw-bold mb-0">Jessica Chen</p>
+                                <p class="text-muted mb-0">Senior Reporter, 3 years</p>
+                            </div>
+                        </div>
+                        <p>"Working at The Daily Record Post has given me the opportunity to pursue stories I'm passionate about while receiving mentorship from some of the best in the industry. The collaborative environment and focus on impact journalism make this a special place to work."</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="border rounded p-3 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{% static 'news/images/employee-2.jpg' %}" alt="Marcus Johnson" class="rounded-circle me-3" width="60" height="60" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                            <div>
+                                <p class="fw-bold mb-0">Marcus Johnson</p>
+                                <p class="text-muted mb-0">Product Manager, 2 years</p>
+                            </div>
+                        </div>
+                        <p>"What I love most about The Daily Record Post is how technology and journalism come together. We're always innovating and finding new ways to tell stories and engage our audience. It's exciting to be part of a team that's shaping the future of digital media."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="border rounded p-3 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{% static 'news/images/employee-3.jpg' %}" alt="Sophia Martinez" class="rounded-circle me-3" width="60" height="60" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                            <div>
+                                <p class="fw-bold mb-0">Sophia Martinez</p>
+                                <p class="text-muted mb-0">Video Editor, 1 year</p>
+                            </div>
+                        </div>
+                        <p>"I joined The Daily Record Post after working in traditional broadcast media, and I've been amazed by the creative freedom and opportunity to experiment with different storytelling formats. The supportive culture and work-life balance make this the best job I've had."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Process -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body p-4">
+            <h2 class="h3 mb-4">Our Application Process</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-file-alt fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="h5 mb-2">1. Application</h3>
+                    <p>Submit your resume, cover letter, and any required work samples through our online portal.</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-phone-alt fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="h5 mb-2">2. Initial Screening</h3>
+                    <p>Qualified candidates will be contacted for a brief phone interview with our recruiting team.</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-users fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="h5 mb-2">3. Team Interviews</h3>
+                    <p>Selected candidates will meet with the hiring manager and potential teammates.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-check-circle fa-2x text-primary"></i>
+                    </div>
+                    <h3 class="h5 mb-2">4. Offer</h3>
+                    <p>Successful candidates will receive a formal offer with details about compensation and benefits.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="h3 mb-4">Frequently Asked Questions</h2>
+    <div class="accordion shadow-sm mb-5" id="careersFAQ">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Do you offer remote work opportunities?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#careersFAQ">
+                <div class="accordion-body">
+                    <p>Yes, many positions at The Daily Record Post can be performed remotely. Some roles may require occasional in-office presence or are designated as hybrid positions. Each job posting specifies the location requirements.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    What benefits do you offer?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#careersFAQ">
+                <div class="accordion-body">
+                    <p>We offer a comprehensive benefits package that includes:</p>
+                    <ul>
+                        <li>Health, dental, and vision insurance</li>
+                        <li>401(k) retirement plan with company match</li>
+                        <li>Generous paid time off and holidays</li>
+                        <li>Parental leave</li>
+                        <li>Professional development stipend</li>
+                        <li>Flexible spending accounts</li>
+                        <li>Life and disability insurance</li>
+                        <li>Employee assistance program</li>
+                        <li>Flexible work arrangements</li>
+                    </ul>
+                    <p>Specific benefits may vary by position and employment status.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    How long does the application process typically take?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#careersFAQ">
+                <div class="accordion-body">
+                    <p>Our hiring process typically takes 3-4 weeks from application to offer, though this can vary depending on the position and volume of applications. We strive to keep all candidates informed about their status throughout the process.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Do you hire internationally?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#careersFAQ">
+                <div class="accordion-body">
+                    <p>Yes, we do hire internationally for certain positions, primarily those that are fully remote. We can sponsor work visas for exceptional candidates in specialized roles. Please note any visa requirements in your application.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    I don't have a journalism degree. Can I still apply?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#careersFAQ">
+                <div class="accordion-body">
+                    <p>Absolutely! While journalism degrees are valuable, we value skills, experience, and passion over specific credentials. Many of our successful team members come from diverse educational and professional backgrounds. We encourage you to apply if you have relevant experience and a passion for our mission.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="text-center">
+        <h2 class="h3 mb-4">Still Have Questions?</h2>
+        <p class="mb-4">Contact our recruitment team for more information about careers at The Daily Record Post.</p>
+        <a href="mailto:careers@dailyrecordpost.com" class="btn btn-primary mb-2">
+            <i class="fas fa-envelope me-2"></i> careers@dailyrecordpost.com
+        </a>
+    </div>
+</div>
+{% endblock %} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="{% static 'images/employee3.jpg' %}" class="rounded-circle" width="80" height="80" alt="Employee">
+                        </div>
+                        <div class="card-body text-center px-0 pt-0">
+                            <p class="card-text fst-italic">"What stands out to me is how much the leadership team values input from everyone, regardless of position. There's a genuine commitment to creating an inclusive environment where all voices are heard and respected."</p>
+                            <div class="mt-3">
+                                <h4 class="h6 mb-0">Aisha Thompson</h4>
+                                <p class="small text-muted">Social Media Manager, 1.5 years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply CTA -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card bg-primary text-white text-center border-0 p-5 shadow">
+                <div class="card-body py-4">
+                    <h2 class="card-title h3 mb-3">Ready to Join Our Team?</h2>
+                    <p class="card-text mb-4">Explore our open positions and become part of our mission to deliver reliable news and thoughtful analysis to our audience.</p>
+                    <a href="#current-openings" class="btn btn-light">View Current Openings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-circle i {
+    font-size: 24px;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+</style>
+{% endblock %}

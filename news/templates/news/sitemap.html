@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sitemap | The Daily Record Post{% endblock %}
+
+{% block meta_description %}Browse our sitemap for easy navigation to all sections and pages of The Daily Record Post, your trusted source for news, analysis, and community updates.{% endblock %}
+
+{% block meta_keywords %}sitemap, site navigation, site index, the daily record post map, news sitemap, news categories{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="mb-5">
+                <h1 class="display-5 fw-bold mb-4">Sitemap</h1>
+                <p class="lead">A complete guide to all pages on The Daily Record Post website</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Main Navigation -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-house-door-fill me-2 text-primary"></i>
+                                Main Navigation
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:home' %}" class="text-decoration-none">Home</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:about' %}" class="text-decoration-none">About Us</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:contact' %}" class="text-decoration-none">Contact</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:privacy_policy' %}" class="text-decoration-none">Privacy Policy</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:terms' %}" class="text-decoration-none">Terms of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Categories -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-grid-fill me-2 text-primary"></i>
+                                News Categories
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'local' %}" class="text-decoration-none">Local News</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'national' %}" class="text-decoration-none">National</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'world' %}" class="text-decoration-none">World</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'business' %}" class="text-decoration-none">Business</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'technology' %}" class="text-decoration-none">Technology</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'health' %}" class="text-decoration-none">Health</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'sports' %}" class="text-decoration-none">Sports</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'entertainment' %}" class="text-decoration-none">Entertainment</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:category' 'opinion' %}" class="text-decoration-none">Opinion</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Features -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-person-fill me-2 text-primary"></i>
+                                User Features
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:login' %}" class="text-decoration-none">Login</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:register' %}" class="text-decoration-none">Register</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:profile' %}" class="text-decoration-none">User Profile</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:saved_articles' %}" class="text-decoration-none">Saved Articles</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:newsletter' %}" class="text-decoration-none">Newsletter Subscription</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-journal-text me-2 text-primary"></i>
+                                Resources
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:archives' %}" class="text-decoration-none">News Archives</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:popular' %}" class="text-decoration-none">Popular Articles</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:trending' %}" class="text-decoration-none">Trending Stories</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:videos' %}" class="text-decoration-none">Video Content</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:podcasts' %}" class="text-decoration-none">Podcasts</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Sections -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-star-fill me-2 text-primary"></i>
+                                Special Sections
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:featured' %}" class="text-decoration-none">Featured Stories</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:investigations' %}" class="text-decoration-none">Investigative Reports</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:community' %}" class="text-decoration-none">Community Spotlights</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:events' %}" class="text-decoration-none">Local Events Calendar</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:weather' %}" class="text-decoration-none">Weather Updates</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h4 mb-3 d-flex align-items-center">
+                                <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+                                Additional Resources
+                            </h2>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'news:faq' %}" class="text-decoration-none">Frequently Asked Questions</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:advertise' %}" class="text-decoration-none">Advertise With Us</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:careers' %}" class="text-decoration-none">Careers</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:press' %}" class="text-decoration-none">Press Releases</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:accessibility' %}" class="text-decoration-none">Accessibility Statement</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'news:sitemap_xml' %}" class="text-decoration-none">XML Sitemap</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="h4 mb-3">Search</h2>
+                        <p>Can't find what you're looking for? Try our search feature:</p>
+                        <form action="{% url 'news:search' %}" method="get" class="d-flex">
+                            <input type="text" name="q" class="form-control me-2" placeholder="Search articles...">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

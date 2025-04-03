@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{% block title %}{{ meta_title|default:"The Daily Record Post - Latest News & Updates" }}{% endblock %}</title>
+    <meta name="description" content="{{ meta_description|default:'Stay updated with the latest news, trends, and in-depth analysis on The Daily Record Post.' }}">
+    <meta name="keywords" content="{{ meta_keywords|default:'news, blog, articles, daily updates, current events' }}">
+    <meta name="author" content="The Daily Record Post">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{{ og_title|default:meta_title|default:'The Daily Record Post' }}">
+    <meta property="og:description" content="{{ og_description|default:meta_description|default:'Latest News & In-depth Analysis' }}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}{% endblock %}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta property="twitter:title" content="{{ twitter_title|default:meta_title|default:'The Daily Record Post' }}">
+    <meta property="twitter:description" content="{{ twitter_description|default:meta_description|default:'Latest News & In-depth Analysis' }}">
+    <meta property="twitter:image" content="{% block twitter_image %}{{ og_image }}{% endblock %}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'news/images/favicon.ico' %}">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'news/css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'news:home' %}">
+                    <img src="{% static 'news/images/ids_logo.svg' %}" alt="The Daily Record Post" height="40">
+                    The Daily Record Post
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'news:home' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                {% for category in categories %}
+                                <li><a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                                {% endfor %}
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'news:category_list' %}">All Categories</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'news:about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'news:contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" action="{% url 'news:search' %}" method="GET">
+                        <div class="input-group">
+                            <input type="search" name="q" class="form-control" placeholder="Search..." aria-label="Search" value="{{ request.GET.q|default:'' }}">
+                            <button class="btn btn-outline-light" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+        {% block header_banner %}{% endblock %}
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-4">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Newsletter -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p class="text-muted">Get the latest news and updates delivered to your inbox.</p>
+                    <form id="newsletter-form" action="{% url 'news:newsletter' %}" method="POST" class="row g-3 justify-content-center">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            {{ newsletter_form.email }}
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <h5>The Daily Record Post</h5>
+                        <p>Stay updated with the latest news, trends, and in-depth analysis that matters.</p>
+                        <div class="social-icons">
+                            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'news:home' %}" class="text-white">Home</a></li>
+                            <li><a href="{% url 'news:about' %}" class="text-white">About Us</a></li>
+                            <li><a href="{% url 'news:contact' %}" class="text-white">Contact</a></li>
+                            <li><a href="{% url 'news:privacy_policy' %}" class="text-white">Privacy Policy</a></li>
+                            <li><a href="{% url 'news:terms_of_service' %}" class="text-white">Terms of Service</a></li>
+                            <li><a href="{% url 'news:sitemap_page' %}" class="text-white">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Categories</h5>
+                        <ul class="list-unstyled">
+                            {% for category in categories|slice:":5" %}
+                                <li><a href="{{ category.get_absolute_url }}" class="text-white">{{ category.name }}</a></li>
+                            {% endfor %}
+                            <li><a href="{% url 'news:category_list' %}" class="text-white">All Categories</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'news:careers' %}" class="text-white">Careers</a></li>
+                            <li><a href="{% url 'news:advertise' %}" class="text-white">Advertise With Us</a></li>
+                            <li><a href="{% url 'news:submit_news' %}" class="text-white">Submit News</a></li>
+                            <li><a href="{% url 'news:opinion_submission' %}" class="text-white">Submit Opinion</a></li>
+                            <li><a href="{% url 'news:faq' %}" class="text-white">FAQ</a></li>
+                            <li><a href="{% url 'news:accessibility' %}" class="text-white">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="my-4 bg-secondary">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">© {% now "Y" %} The Daily Record Post. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Designed & Developed for news enthusiasts</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{% static 'news/js/main.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    
+    <!-- Newsletter AJAX Submission -->
+    <script>
+        $(document).ready(function() {
+            $('#newsletter-form').on('submit', function(e) {
+                e.preventDefault();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "news:newsletter_signup_ajax" %}',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            $('#newsletter-form').html('<div class="alert alert-success">Thank you for subscribing!</div>');
+                        } else {
+                            // Display errors
+                            var errorHTML = '<div class="alert alert-danger"><ul>';
+                            $.each(response.errors, function(field, errors) {
+                                $.each(errors, function(index, error) {
+                                    errorHTML += '<li>' + field + ': ' + error + '</li>';
+                                });
+                            });
+                            errorHTML += '</ul></div>';
+                            $('#newsletter-form').prepend(errorHTML);
+                        }
+                    },
+                    error: function() {
+                        $('#newsletter-form').prepend('<div class="alert alert-danger">An error occurred. Please try again.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script>
+        // Replace with actual GA code in production
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>

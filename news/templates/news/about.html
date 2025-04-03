@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | The Daily Record Post{% endblock %}
+
+{% block meta_description %}Learn about The Daily Record Post - our mission, team, history, and values. We're committed to delivering reliable, timely, and insightful news.{% endblock %}
+
+{% block meta_keywords %}about The Daily Record Post, news team, editorial standards, journalism ethics, news mission, news values{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold mb-4">About The Daily Record Post</h1>
+            <p class="lead mb-0">Delivering reliable, timely, and insightful news since 2023</p>
+        </div>
+    </div>
+    
+    <!-- Mission Section -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2 class="h3 mb-4">Our Mission</h2>
+            <p>At The Daily Record Post, we believe in the power of informed citizens. Our mission is to provide accurate, balanced, and comprehensive news reporting that empowers our readers to understand the world around them and make informed decisions.</p>
+            <p>We are committed to upholding the highest standards of journalistic integrity, pursuing truth with unwavering dedication, and serving our community with stories that matter.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'news/images/about-mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+        </div>
+    </div>
+    
+    <!-- Values Section -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="h3 text-center">Our Core Values</h2>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-balance-scale fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="h5 card-title">Integrity & Truth</h3>
+                    <p class="card-text">We are committed to accurate reporting, fact-checking, and correcting errors promptly. Truth is our guiding principle.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-users fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="h5 card-title">Community Focus</h3>
+                    <p class="card-text">We prioritize stories that impact our community and strive to represent diverse perspectives and voices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-lightbulb fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="h5 card-title">Innovation</h3>
+                    <p class="card-text">We embrace new technologies and storytelling formats to deliver news in ways that resonate with today's readers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team Section -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="h3 text-center">Our Editorial Team</h2>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm">
+                <img src="{% static 'news/images/editor-chief.jpg' %}" class="card-img-top" alt="Editor in Chief" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                <div class="card-body text-center">
+                    <h3 class="h5 card-title">Jane Doe</h3>
+                    <p class="card-text text-muted">Editor in Chief</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm">
+                <img src="{% static 'news/images/managing-editor.jpg' %}" class="card-img-top" alt="Managing Editor" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                <div class="card-body text-center">
+                    <h3 class="h5 card-title">John Smith</h3>
+                    <p class="card-text text-muted">Managing Editor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm">
+                <img src="{% static 'news/images/senior-reporter.jpg' %}" class="card-img-top" alt="Senior Reporter" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                <div class="card-body text-center">
+                    <h3 class="h5 card-title">Emily Johnson</h3>
+                    <p class="card-text text-muted">Senior Reporter</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card border-0 shadow-sm">
+                <img src="{% static 'news/images/tech-editor.jpg' %}" class="card-img-top" alt="Technology Editor" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+                <div class="card-body text-center">
+                    <h3 class="h5 card-title">Michael Chen</h3>
+                    <p class="card-text text-muted">Technology Editor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Editorial Standards -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card bg-light border-0">
+                <div class="card-body p-4">
+                    <h2 class="h3 mb-4">Our Editorial Standards</h2>
+                    <p>The Daily Record Post adheres to a strict code of ethics and professional standards:</p>
+                    <ul class="mb-0">
+                        <li>We verify information from multiple sources before publishing</li>
+                        <li>We clearly distinguish between news reporting and opinion</li>
+                        <li>We promptly correct errors and provide transparent updates</li>
+                        <li>We disclose potential conflicts of interest</li>
+                        <li>We protect the confidentiality of sources when necessary</li>
+                        <li>We report with sensitivity on issues involving trauma and marginalized communities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- History Section -->
+    <div class="row">
+        <div class="col-md-6 order-md-2">
+            <h2 class="h3 mb-4">Our History</h2>
+            <p>The Daily Record Post was founded in 2023 with a vision to create a news platform that combines traditional journalistic values with modern digital innovation.</p>
+            <p>Though we are relatively new, our team brings decades of combined experience from prestigious news organizations around the world. We've quickly established ourselves as a trusted source of news, committed to bringing important stories to light and fostering informed public discourse.</p>
+            <p>As we grow, we remain committed to our founding principles and to serving our readers with excellence and integrity.</p>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="{% static 'news/images/about-history.jpg' %}" alt="Our History" class="img-fluid rounded shadow" onerror="this.src='{% static 'news/images/placeholder.jpg' %}'">
+        </div>
+    </div>
+</div>
+{% endblock %}

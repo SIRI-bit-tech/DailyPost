@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Categories | The Daily Record Post{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-5 fw-bold">Categories</h1>
+        <p class="lead text-muted">Browse articles by category to find the content that interests you.</p>
+    </div>
+</div>
+
+<div class="row">
+    {% for category in categories %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h4">{{ category.name }}</h2>
+                    <p class="card-text">{{ category.description|truncatechars:150 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">{{ category.articles.count }} articles</small>
+                        <a href="{{ category.get_absolute_url }}" class="btn btn-outline-primary">View Articles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">No categories available at the moment.</div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

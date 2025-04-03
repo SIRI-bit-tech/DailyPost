@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block meta_keywords %}submit news, news tip, story idea, press release, community news, local news submission, the daily record post{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 fw-bold mb-4">Submit a News Tip</h1>
+            <p class="lead">Help us cover the stories that matter to our community</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Introduction Card -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h2 class="h3 mb-4">Share Your Story</h2>
+                            <p>At The Daily Record Post, we believe that meaningful journalism starts with community engagement. Whether you have a news tip, a story idea, or a press release, we want to hear from you.</p>
+                            <p>Our team reviews all submissions, and while we can't guarantee coverage, we appreciate your contributions to our news reporting.</p>
+                            <h3 class="h5 mt-4">What we're looking for:</h3>
+                            <ul>
+                                <li>Community events and announcements</li>
+                                <li>Local business news and developments</li>
+                                <li>Human interest stories</li>
+                                <li>Issues affecting the community</li>
+                                <li>Tips on breaking news</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/news_tip.svg' %}" alt="Submit News Illustration" class="img-fluid" style="max-height: 300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Form -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">News Submission Form</h2>
+                    
+                    {% if messages %}
+                    <div class="alert alert-success mb-4">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+                            <!-- Contact Information -->
+                            <div class="col-12">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Your Contact Information</h3>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="full_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                                <div class="form-text">Optional, but helpful if we need to follow up quickly.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="location" class="form-label">Your Location <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="location" name="location" required>
+                                <div class="form-text">City and state/province or country.</div>
+                            </div>
+
+                            <!-- Story Details -->
+                            <div class="col-12 mt-4">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Story Details</h3>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="headline" class="form-label">Suggested Headline <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="headline" name="headline" maxlength="100" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                                <select class="form-select" id="category" name="category" required>
+                                    <option value="" selected disabled>Select a category</option>
+                                    <option value="Breaking News">Breaking News</option>
+                                    <option value="Local News">Local News</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Politics">Politics</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Environment">Environment</option>
+                                    <option value="Arts & Culture">Arts & Culture</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Human Interest">Human Interest</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="event_date" class="form-label">Event Date</label>
+                                <input type="date" class="form-control" id="event_date" name="event_date">
+                                <div class="form-text">If your news is about an event, enter its date.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="story_content" class="form-label">Story Details <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="story_content" name="story_content" rows="6" required></textarea>
+                                <div class="form-text">
+                                    Please provide as much detail as possible. Include the who, what, when, where, why, and how.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="supporting_links" class="form-label">Supporting Links</label>
+                                <input type="url" class="form-control" id="supporting_links" name="supporting_links">
+                                <div class="form-text">Include any relevant links to more information (optional).</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="attachments" class="form-label">Photos or Documents</label>
+                                <input type="file" class="form-control" id="attachments" name="attachments" multiple>
+                                <div class="form-text">
+                                    You can attach photos, videos, or documents that support your submission. Maximum file size: 10MB.
+                                </div>
+                            </div>
+
+                            <!-- Additional Information -->
+                            <div class="col-12 mt-4">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Additional Information</h3>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="source" class="form-label">Source of Information</label>
+                                <input type="text" class="form-control" id="source" name="source">
+                                <div class="form-text">
+                                    If you're not the primary source, please tell us where you learned about this news.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="additional_contacts" class="form-label">Additional Contacts</label>
+                                <textarea class="form-control" id="additional_contacts" name="additional_contacts" rows="3"></textarea>
+                                <div class="form-text">
+                                    Provide contact information for any individuals who might be able to provide more information or comments for this story.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="anonymous" name="anonymous">
+                                    <label class="form-check-label" for="anonymous">
+                                        I wish to remain anonymous as the source of this tip
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreement" name="agreement" required>
+                                    <label class="form-check-label" for="agreement">
+                                        I understand that submission does not guarantee publication, and that The Daily Record Post may edit content for clarity and style. <span class="text-danger">*</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Submit News Tip</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Guidelines -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Submission Guidelines</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-success fs-4 me-3"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5">What to Include</h3>
+                                    <ul class="ps-0" style="list-style-type: none;">
+                                        <li><i class="fas fa-check text-success me-2"></i> Accurate and complete information</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Relevant details and context</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Contact information for verification</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Photos or supporting documents when available</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Clear indication of time-sensitive material</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-danger fs-4 me-3"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5">What to Avoid</h3>
+                                    <ul class="ps-0" style="list-style-type: none;">
+                                        <li><i class="fas fa-times text-danger me-2"></i> Unverified rumors or speculation</li>
+                                        <li><i class="fas fa-times text-danger me-2"></i> False or misleading information</li>
+                                        <li><i class="fas fa-times text-danger me-2"></i> Content that violates privacy</li>
+                                        <li><i class="fas fa-times text-danger me-2"></i> Defamatory or harmful accusations</li>
+                                        <li><i class="fas fa-times text-danger me-2"></i> Promotional content disguised as news</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-info-circle fs-4 me-3"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5">What Happens Next?</h3>
+                                <p class="mb-0">After submission, our editorial team will review your news tip. If we decide to pursue the story, a reporter may contact you for additional information. Please note that due to the volume of submissions we receive, we cannot guarantee a response to every submission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Contact Methods -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Other Ways to Reach Us</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <div class="card h-100 border-0 text-center p-4">
+                                <div class="card-body">
+                                    <i class="fas fa-envelope-open-text fs-1 text-primary mb-3"></i>
+                                    <h3 class="h5">Email</h3>
+                                    <p>Send news tips directly to our news desk:</p>
+                                    <a href="mailto:tips@dailyrecordpost.com" class="btn btn-outline-primary">tips@dailyrecordpost.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <div class="card h-100 border-0 text-center p-4">
+                                <div class="card-body">
+                                    <i class="fas fa-phone fs-1 text-primary mb-3"></i>
+                                    <h3 class="h5">Phone</h3>
+                                    <p>Call our news tip hotline:</p>
+                                    <a href="tel:+15551234567" class="btn btn-outline-primary">(555) 123-4567</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 text-center p-4">
+                                <div class="card-body">
+                                    <i class="fas fa-comment-alt fs-1 text-primary mb-3"></i>
+                                    <h3 class="h5">Social Media</h3>
+                                    <p>Contact us through our social media channels:</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="#" class="btn btn-outline-primary btn-sm mx-1"><i class="fab fa-twitter"></i> Twitter</a>
+                                        <a href="#" class="btn btn-outline-primary btn-sm mx-1"><i class="fab fa-facebook-f"></i> Facebook</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confidential Tips -->
+            <div class="card bg-dark text-white border-0 shadow-sm mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 class="h3 mb-4">Need to Share Confidentially?</h2>
+                            <p>We understand that some information is sensitive. If you need to share confidential information securely, we offer several options for protected communication.</p>
+                            <p>Our journalists are committed to protecting their sources and handling information with appropriate care.</p>
+                            <a href="#" class="btn btn-light mt-3">Learn About Secure Communication Options</a>
+                        </div>
+                        <div class="col-md-4 d-none d-md-flex align-items-center justify-content-center">
+                            <i class="fas fa-user-secret text-white" style="font-size: 8rem; opacity: 0.2;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

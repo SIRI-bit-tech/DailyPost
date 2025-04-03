@@ -1,0 +1,254 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004080;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #0066cc;
+}
+
+/* Header & Navigation */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.hero-banner {
+    background-color: #0d2b45;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.hero-banner h1 {
+    font-weight: 800;
+}
+
+/* Article Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Article Detail */
+.article-detail .featured-image {
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.article-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content h2, .article-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #0066cc;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #555;
+    margin: 1.5rem 0;
+}
+
+.article-content pre, .article-content code {
+    background-color: #f1f1f1;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+.article-meta {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.author-bio {
+    border-radius: 0.5rem;
+}
+
+/* Comments */
+.comment {
+    border-left: 3px solid #0066cc;
+}
+
+/* Pagination */
+.pagination .page-link {
+    color: #0066cc;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0066cc;
+    border-color: #0066cc;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background-color: #f1f5f9;
+    padding: 3rem 0;
+}
+
+/* Tags Cloud */
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.tags-cloud a:hover {
+    background-color: #e9ecef;
+}
+
+/* Footer */
+footer {
+    background-color: #0d2b45;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .hero-banner {
+        text-align: center;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+    }
+    
+    .social-share {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    
+    .author-bio {
+        text-align: center;
+    }
+    
+    .author-bio .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .author-bio img {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+
+/* Dark Mode Support (optional - can be toggled with JS) */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .card, 
+.dark-mode .bg-light, 
+.dark-mode .comment {
+    background-color: #242424;
+    color: #e0e0e0;
+}
+
+.dark-mode .text-muted {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .border {
+    border-color: #343434 !important;
+} 

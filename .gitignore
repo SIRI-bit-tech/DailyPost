@@ -1,0 +1,18 @@
+# Python  
+__pycache__/  
+*/__pycache__/  
+*/**/__pycache__/  
+*.py[cod]  
+*$py.class  
+*.so  
+.env  
+venv/  
+db.sqlite3  
+media/  
+staticfiles/
+
+# Project-specific files
+.cursorrules
+cert.crt
+cert.key
+clean_and_check.py

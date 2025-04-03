@@ -1,0 +1,438 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block meta_keywords %}submit opinion, letters to the editor, guest column, editorial, opinion piece, commentary, reader submissions{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 fw-bold mb-4">Submit Your Opinion</h1>
+            <p class="lead">Share your voice with our readers through letters to the editor and guest columns</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Introduction Card -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="row">
+                        <div class="col-md-7 mb-4 mb-md-0">
+                            <h2 class="h3 mb-4">Share Your Perspective</h2>
+                            <p>At The Daily Record Post, we believe in the power of diverse voices and constructive dialogue. Our opinion section provides a platform for community members to share their perspectives on issues that matter.</p>
+                            <p>We welcome submissions in the following formats:</p>
+                            
+                            <div class="d-flex mt-4 mb-3">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary p-2"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="h5">Letters to the Editor</h3>
+                                    <p class="mb-0">Brief responses to recent news or previously published content. (<strong>250 words max</strong>)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary p-2"><i class="fas fa-pen-fancy"></i></span>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="h5">Guest Columns</h3>
+                                    <p class="mb-0">In-depth analyses of topics relevant to our community. (<strong>750 words max</strong>)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary p-2"><i class="fas fa-comment-dots"></i></span>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="h5">Community Commentaries</h3>
+                                    <p class="mb-0">First-person accounts of experiences relevant to current events. (<strong>500 words max</strong>)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/opinion.svg' %}" alt="Opinion Submission Illustration" class="img-fluid" style="max-height: 300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Guidelines Card -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Submission Guidelines</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 mb-3">Content Guidelines</h3>
+                                    <ul class="fa-ul mb-0">
+                                        <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Focus on issues rather than personalities</li>
+                                        <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Support arguments with facts and credible sources</li>
+                                        <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Relevance to current events or community issues</li>
+                                        <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Original content not published elsewhere</li>
+                                        <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Clear, concise writing with proper grammar</li>
+                                        <li><span class="fa-li"><i class="fas fa-times text-danger"></i></span>No hate speech, profanity, or personal attacks</li>
+                                        <li><span class="fa-li"><i class="fas fa-times text-danger"></i></span>No commercial promotions or advertising</li>
+                                        <li><span class="fa-li"><i class="fas fa-times text-danger"></i></span>No potentially libelous content</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 mb-3">Editorial Policies</h3>
+                                    <ul class="fa-ul mb-0">
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>Submissions may be edited for length, clarity, and style</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>We verify letter writers' identities before publication</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>Not all submissions will be published</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>Publication decisions are at the editors' discretion</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>We may contact you for verification or clarification</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>Response time varies based on volume of submissions</li>
+                                        <li><span class="fa-li"><i class="fas fa-info-circle text-primary"></i></span>We limit publication frequency to ensure diverse voices</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Form -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Opinion Submission Form</h2>
+                    
+                    {% if messages %}
+                    <div class="alert alert-success mb-4">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+                            <!-- Submission Type -->
+                            <div class="col-12">
+                                <label for="submission_type" class="form-label">Submission Type <span class="text-danger">*</span></label>
+                                <select class="form-select" id="submission_type" name="submission_type" required>
+                                    <option value="" selected disabled>Select submission type</option>
+                                    <option value="Letter to the Editor">Letter to the Editor (250 words max)</option>
+                                    <option value="Guest Column">Guest Column (750 words max)</option>
+                                    <option value="Community Commentary">Community Commentary (500 words max)</option>
+                                </select>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="col-12 mt-3">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Your Information</h3>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="full_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" required>
+                                <div class="form-text">This will be published with your submission.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="form-text">For verification purposes only, will not be published.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <div class="form-text">For verification purposes only, will not be published.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="city" class="form-label">City/Town of Residence <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="city" name="city" required>
+                                <div class="form-text">This will be published with your submission.</div>
+                            </div>
+
+                            <!-- Submission Details -->
+                            <div class="col-12 mt-3">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Submission Details</h3>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="headline" class="form-label">Headline/Title <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="headline" name="headline" maxlength="100" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="content" class="form-label">Your Submission <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                                <div class="form-text">
+                                    <span id="word-count">0</span> words. Please adhere to the word limit for your selected submission type.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="relevance" class="form-label">Relevance to Current Events <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="relevance" name="relevance" rows="3" required></textarea>
+                                <div class="form-text">
+                                    Briefly explain how your submission relates to current events or issues in our community.
+                                </div>
+                            </div>
+
+                            <!-- Declarations & Agreements -->
+                            <div class="col-12 mt-3">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Declarations & Agreements</h3>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="original_content" name="original_content" required>
+                                    <label class="form-check-label" for="original_content">
+                                        I confirm that this is my original work and has not been published elsewhere. <span class="text-danger">*</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="fact_check" name="fact_check" required>
+                                    <label class="form-check-label" for="fact_check">
+                                        I confirm that any factual claims in my submission are accurate to the best of my knowledge. <span class="text-danger">*</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="editorial_rights" name="editorial_rights" required>
+                                    <label class="form-check-label" for="editorial_rights">
+                                        I understand that if selected for publication, my submission may be edited for length, clarity, and style. <span class="text-danger">*</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="contact_permission" name="contact_permission" required>
+                                    <label class="form-check-label" for="contact_permission">
+                                        I agree to be contacted by an editor regarding my submission if necessary. <span class="text-danger">*</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Bio for Guest Columns -->
+                            <div class="col-12 mt-3" id="bio-section" style="display: none;">
+                                <h3 class="h5 border-bottom pb-2 mb-3">Author Biography</h3>
+                                <div class="mb-3">
+                                    <label for="author_bio" class="form-label">Brief Biography (For Guest Columns Only) <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="author_bio" name="author_bio" rows="3"></textarea>
+                                    <div class="form-text">
+                                        2-3 sentences about yourself that establish your credibility on this topic. This will appear with your column if published.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Submit Opinion</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQs -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Frequently Asked Questions</h2>
+                    
+                    <div class="accordion" id="opinionFAQ">
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How long will it take to hear back about my submission?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#opinionFAQ">
+                                <div class="accordion-body">
+                                    <p>We review submissions regularly, but response times vary based on the volume of submissions we receive. Generally, you can expect to hear back within 1-2 weeks if your submission has been selected for publication. If you haven't heard from us within two weeks, it's likely that your submission was not selected for publication.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Why might my submission not be selected for publication?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#opinionFAQ">
+                                <div class="accordion-body">
+                                    <p>There are several reasons why a submission might not be selected:</p>
+                                    <ul>
+                                        <li>We receive more submissions than we can publish</li>
+                                        <li>The topic may have been recently covered by another contributor</li>
+                                        <li>The submission doesn't follow our guidelines for length or content</li>
+                                        <li>The piece may need substantial editing beyond what our resources allow</li>
+                                        <li>The timing may not align with current news cycles or editorial priorities</li>
+                                    </ul>
+                                    <p>Not being selected doesn't mean your perspective isn't valuable. We encourage you to try again with future submissions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Can I submit opinion pieces on behalf of an organization?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#opinionFAQ">
+                                <div class="accordion-body">
+                                    <p>Yes, we accept submissions from representatives of organizations, non-profits, community groups, and businesses. However, the following guidelines apply:</p>
+                                    <ul>
+                                        <li>The organizational affiliation must be clearly disclosed</li>
+                                        <li>The submission should represent a unique perspective, not just promote the organization</li>
+                                        <li>Commercial intent should not be the primary purpose of the submission</li>
+                                        <li>The submission must be signed by a specific individual who takes responsibility for the content</li>
+                                    </ul>
+                                    <p>These submissions are typically considered for Guest Columns rather than Letters to the Editor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    How often can I submit opinion pieces?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#opinionFAQ">
+                                <div class="accordion-body">
+                                    <p>To ensure a diverse range of voices in our opinion section, we generally limit publication frequency as follows:</p>
+                                    <ul>
+                                        <li>Letters to the Editor: No more than one per month per author</li>
+                                        <li>Guest Columns: No more than one per quarter per author</li>
+                                        <li>Community Commentaries: No more than one every two months per author</li>
+                                    </ul>
+                                    <p>However, you're welcome to submit more frequently, with the understanding that we prioritize publishing voices that haven't been recently featured.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4 p-lg-5">
+                    <h2 class="h3 mb-4">Examples of Published Submissions</h2>
+                    <p class="mb-4">The following examples illustrate the types of opinion pieces we publish. Reading these may help you craft a more effective submission.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    Letter to the Editor
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="h5 card-title">Addressing Downtown Parking Issues</h3>
+                                    <p class="card-text">An effective letter identifying a community problem and proposing practical solutions.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Read Example</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    Guest Column
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="h5 card-title">The Future of Renewable Energy in Our Region</h3>
+                                    <p class="card-text">A well-researched column by an energy policy expert providing context and analysis.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Read Example</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    Community Commentary
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="h5 card-title">How School Budget Cuts Affected My Classroom</h3>
+                                    <p class="card-text">A personal perspective from a local teacher illustrating policy impacts through firsthand experience.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Read Example</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Word counter for submission
+        const contentTextarea = document.getElementById('content');
+        const wordCountDisplay = document.getElementById('word-count');
+        
+        contentTextarea.addEventListener('input', function() {
+            const text = this.value.trim();
+            const wordCount = text ? text.split(/\s+/).length : 0;
+            wordCountDisplay.textContent = wordCount;
+            
+            // Visual feedback based on word count limits
+            const submissionType = document.getElementById('submission_type').value;
+            
+            if (submissionType === 'Letter to the Editor' && wordCount > 250) {
+                wordCountDisplay.classList.add('text-danger');
+                wordCountDisplay.classList.remove('text-success');
+            } else if (submissionType === 'Guest Column' && wordCount > 750) {
+                wordCountDisplay.classList.add('text-danger');
+                wordCountDisplay.classList.remove('text-success');
+            } else if (submissionType === 'Community Commentary' && wordCount > 500) {
+                wordCountDisplay.classList.add('text-danger');
+                wordCountDisplay.classList.remove('text-success');
+            } else if (wordCount > 0) {
+                wordCountDisplay.classList.add('text-success');
+                wordCountDisplay.classList.remove('text-danger');
+            } else {
+                wordCountDisplay.classList.remove('text-success');
+                wordCountDisplay.classList.remove('text-danger');
+            }
+        });
+        
+        // Show/hide biography section based on submission type
+        const submissionTypeSelect = document.getElementById('submission_type');
+        const bioSection = document.getElementById('bio-section');
+        const authorBio = document.getElementById('author_bio');
+        
+        submissionTypeSelect.addEventListener('change', function() {
+            if (this.value === 'Guest Column') {
+                bioSection.style.display = 'block';
+                authorBio.setAttribute('required', '');
+            } else {
+                bioSection.style.display = 'none';
+                authorBio.removeAttribute('required');
+            }
+            
+            // Update word count feedback when submission type changes
+            contentTextarea.dispatchEvent(new Event('input'));
+        });
+    });
+</script>
+{% endblock %}
+{% endblock %} 

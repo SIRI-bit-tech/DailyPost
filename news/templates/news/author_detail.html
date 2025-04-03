@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ author }} - Articles | The Daily Record Post{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-md-3 text-center mb-4 mb-md-0">
+        {% if author.profile_picture %}
+            <img src="{{ author.profile_picture.url }}" alt="{{ author }}" class="rounded-circle img-fluid mb-3" style="max-width: 180px;">
+        {% else %}
+            <img src="{% static 'news/images/default-avatar.png' %}" alt="{{ author }}" class="rounded-circle img-fluid mb-3" style="max-width: 180px;">
+        {% endif %}
+    </div>
+    <div class="col-md-9">
+        <h1 class="display-5 fw-bold">{{ author }}</h1>
+        
+        {% if author.bio %}
+            <p class="lead">{{ author.bio }}</p>
+        {% endif %}
+        
+        <div class="author-meta mt-4">
+            {% if author.website or author.twitter or author.facebook or author.linkedin %}
+                <h5 class="mb-3">Connect with {{ author.user.first_name|default:author.user.username }}</h5>
+                <div class="social-links d-flex">
+                    {% if author.website %}
+                        <a href="{{ author.website }}" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="fas fa-globe me-1"></i> Website
+                        </a>
+                    {% endif %}
+                    {% if author.twitter %}
+                        <a href="{{ author.twitter }}" target="_blank" class="btn btn-outline-info btn-sm me-2">
+                            <i class="fab fa-twitter me-1"></i> Twitter
+                        </a>
+                    {% endif %}
+                    {% if author.facebook %}
+                        <a href="{{ author.facebook }}" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="fab fa-facebook-f me-1"></i> Facebook
+                        </a>
+                    {% endif %}
+                    {% if author.linkedin %}
+                        <a href="{{ author.linkedin }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <i class="fab fa-linkedin-in me-1"></i> LinkedIn
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<hr class="mb-4">
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2>Articles by {{ author }}</h2>
+        <p class="text-muted">{{ articles.count }} article{{ articles.count|pluralize }}</p>
+    </div>
+
+    {% for article in articles %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if article.featured_image %}
+                            <img src="{{ article.featured_image.url }}" class="img-fluid rounded-start h-100 object-fit-cover" alt="{{ article.title }}">
+                        {% else %}
+                            <img src="{% static 'news/images/placeholder.jpg' %}" class="img-fluid rounded-start h-100 object-fit-cover" alt="Placeholder">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="badge bg-primary mb-2">{{ article.category.name }}</div>
+                            <h3 class="card-title h5">{{ article.title }}</h3>
+                            <p class="card-text text-muted small">
+                                {{ article.published_date|date:"F j, Y" }}
+                            </p>
+                            <p class="card-text">{{ article.summary|truncatechars:100 }}</p>
+                            <a href="{{ article.get_absolute_url }}" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">This author has not published any articles yet.</div>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if is_paginated %}
+    <nav aria-label="Page navigation" class="my-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo; First</span>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Next</span>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link">Last &raquo;</span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+{% endblock %}

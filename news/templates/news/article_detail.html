@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ article.meta_title|default:article.title }} | The Daily Record Post{% endblock %}
+
+{% block og_image %}
+    {% if article.featured_image %}
+        {{ request.scheme }}://{{ request.get_host }}{{ article.featured_image.url }}
+    {% else %}
+        {{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<article class="article-detail">
+    <!-- Article Header -->
+    <header class="mb-4">
+        <div class="category mb-2">
+            <a href="{{ article.category.get_absolute_url }}" class="badge bg-primary text-decoration-none">
+                {{ article.category.name }}
+            </a>
+            {% for tag in article.tags.all %}
+                <a href="{{ tag.get_absolute_url }}" class="badge bg-secondary text-decoration-none">
+                    {{ tag.name }}
+                </a>
+            {% endfor %}
+        </div>
+        
+        <h1 class="display-5 fw-bold">{{ article.title }}</h1>
+        
+        {% if article.subtitle %}
+            <h2 class="lead fs-4 text-muted">{{ article.subtitle }}</h2>
+        {% endif %}
+        
+        <div class="article-meta d-flex align-items-center my-4">
+            <div class="author-info d-flex align-items-center">
+                {% if article.author.profile_picture %}
+                    <img src="{{ article.author.profile_picture.url }}" alt="{{ article.author }}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                {% else %}
+                    <img src="{% static 'news/images/default-avatar.png' %}" alt="{{ article.author }}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                {% endif %}
+                <div>
+                    <div>By <a href="{{ article.author.get_absolute_url }}" class="text-decoration-none">{{ article.author }}</a></div>
+                    <div class="text-muted small">
+                        <time datetime="{{ article.published_date|date:'c' }}">{{ article.published_date|date:"F j, Y" }}</time>
+                        • {{ article.view_count }} views
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Share Buttons -->
+            <div class="social-share ms-auto">
+                <div class="d-flex">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ article.title }}" target="_blank" class="btn btn-sm btn-outline-info me-2">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ article.title }}" target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?text={{ article.title }} {{ request.build_absolute_uri }}" target="_blank" class="btn btn-sm btn-outline-success">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Featured Image -->
+    {% if article.featured_image %}
+        <figure class="figure text-center mb-5">
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="figure-img img-fluid rounded shadow">
+            <figcaption class="figure-caption text-center">{{ article.title }}</figcaption>
+        </figure>
+    {% endif %}
+    
+    <!-- Article Content -->
+    <div class="article-content mb-5">
+        {{ article.content|safe }}
+    </div>
+    
+    <!-- Article Footer -->
+    <footer class="article-footer">
+        <!-- Tags -->
+        <div class="tags mb-4">
+            <span class="fw-bold me-2">Tags:</span>
+            {% for tag in article.tags.all %}
+                <a href="{{ tag.get_absolute_url }}" class="badge bg-light text-dark text-decoration-none me-2 mb-2 p-2">
+                    {{ tag.name }}
+                </a>
+            {% empty %}
+                <span class="text-muted">No tags</span>
+            {% endfor %}
+        </div>
+        
+        <!-- Author Bio -->
+        <div class="author-bio p-4 bg-light rounded mb-5">
+            <div class="d-flex">
+                {% if article.author.profile_picture %}
+                    <img src="{{ article.author.profile_picture.url }}" alt="{{ article.author }}" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                {% else %}
+                    <img src="{% static 'news/images/default-avatar.png' %}" alt="{{ article.author }}" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                {% endif %}
+                <div>
+                    <h5 class="mb-1">About {{ article.author }}</h5>
+                    {% if article.author.bio %}
+                        <p>{{ article.author.bio|truncatewords:30 }}</p>
+                    {% else %}
+                        <p class="text-muted">Author at The Daily Record Post</p>
+                    {% endif %}
+                    <div class="social-links">
+                        {% if article.author.website %}
+                            <a href="{{ article.author.website }}" target="_blank" class="me-2"><i class="fas fa-globe"></i></a>
+                        {% endif %}
+                        {% if article.author.twitter %}
+                            <a href="{{ article.author.twitter }}" target="_blank" class="me-2"><i class="fab fa-twitter"></i></a>
+                        {% endif %}
+                        {% if article.author.facebook %}
+                            <a href="{{ article.author.facebook }}" target="_blank" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        {% endif %}
+                        {% if article.author.linkedin %}
+                            <a href="{{ article.author.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Related Articles -->
+    {% if related_articles %}
+        <section class="related-articles mb-5">
+            <h3 class="mb-4">Related Articles</h3>
+            <div class="row">
+                {% for related in related_articles %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            {% if related.featured_image %}
+                                <img src="{{ related.featured_image.url }}" class="card-img-top" alt="{{ related.title }}">
+                            {% else %}
+                                <img src="{% static 'news/images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                            {% endif %}
+                            <div class="card-body">
+                                <div class="badge bg-primary mb-2">{{ related.category.name }}</div>
+                                <h5 class="card-title">{{ related.title }}</h5>
+                                <p class="card-text text-muted small">
+                                    {{ related.published_date|date:"F j, Y" }}
+                                </p>
+                                <p class="card-text">{{ related.summary|truncatechars:100 }}</p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <a href="{{ related.get_absolute_url }}" class="btn btn-outline-primary btn-sm">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <h3 class="mb-4">Comments ({{ comments|length }})</h3>
+        
+        <!-- Comments List -->
+        {% if comments %}
+            <div class="comments-list mb-4">
+                {% for comment in comments %}
+                    <div class="comment bg-light p-3 rounded mb-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="comment-meta mb-2">
+                                <span class="fw-bold">{{ comment.name }}</span>
+                                {% if comment.website %}
+                                    <a href="{{ comment.website }}" target="_blank" class="text-muted small ms-2">
+                                        <i class="fas fa-globe"></i> Website
+                                    </a>
+                                {% endif %}
+                                <span class="text-muted small ms-2">
+                                    <time datetime="{{ comment.created_at|date:'c' }}">{{ comment.created_at|date:"F j, Y H:i" }}</time>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="mb-0">{{ comment.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info mb-4">No comments yet. Be the first to comment!</div>
+        {% endif %}
+        
+        <!-- Comment Form -->
+        <div class="comment-form">
+            <h4 class="mb-3">Leave a Comment</h4>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                            <div class="invalid-feedback d-block">{{ form.name.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="invalid-feedback d-block">{{ form.email.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-12">
+                        {{ form.website }}
+                        {% if form.website.errors %}
+                            <div class="invalid-feedback d-block">{{ form.website.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-12">
+                        {{ form.content }}
+                        {% if form.content.errors %}
+                            <div class="invalid-feedback d-block">{{ form.content.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        <p class="text-muted small mt-2">Your comment will be reviewed before being published.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</article>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Schema.org Structured Data for SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{{ article.title }}",
+    "description": "{{ article.summary|striptags }}",
+    "image": "{% if article.featured_image %}{{ request.scheme }}://{{ request.get_host }}{{ article.featured_image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}{% endif %}",
+    "datePublished": "{{ article.published_date|date:'c' }}",
+    "dateModified": "{{ article.updated_date|date:'c' }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ article.author }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "The Daily Record Post",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ request.build_absolute_uri }}"
+    }
+}
+</script>
+{% endblock %}
