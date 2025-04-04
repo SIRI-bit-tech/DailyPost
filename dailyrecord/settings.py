@@ -240,14 +240,14 @@ if not DEBUG:
     
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
      
-    # # HSTS settings
-    # hsts_seconds_str = os.environ.get('SECURE_HSTS_SECONDS', '31536000')
-    # # Strip any comments that might be in the .env file
-    # if '#' in hsts_seconds_str:
-    #     hsts_seconds_str = hsts_seconds_str.split('#')[0].strip()
-    # SECURE_HSTS_SECONDS = int(hsts_seconds_str)  # 1 year
-    # SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'True') == 'True'
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get('SECURE_HSTS_INCLUDE_SUBDOMAINS', 'True') == 'True'
+    # HSTS settings
+    hsts_seconds_str = os.environ.get('SECURE_HSTS_SECONDS', '31536000')
+    # Strip any comments that might be in the .env file
+    if '#' in hsts_seconds_str:
+        hsts_seconds_str = hsts_seconds_str.split('#')[0].strip()
+    SECURE_HSTS_SECONDS = int(hsts_seconds_str)  # 1 year
+    SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'True') == 'True'
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get('SECURE_HSTS_INCLUDE_SUBDOMAINS', 'True') == 'True'
 
 
 LOGGING = {
