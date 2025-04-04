@@ -163,7 +163,7 @@ STATICFILES_FINDERS = [
 ]
 
 # WhiteNoise configuration for static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 COMPRESS_ENABLED = True
 
 # Media files
