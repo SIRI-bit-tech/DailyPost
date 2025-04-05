@@ -30,7 +30,7 @@
                     {% if article.featured_image %}
                         <img src="{{ article.featured_image.url }}" class="card-img-top" alt="{{ article.title }}">
                     {% else %}
-                        <img src="{% static 'news/images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                        <img src="{% static 'news/images/placeholder-image.svg' %}" class="card-img-top" alt="Placeholder">
                     {% endif %}
                     <div class="card-body">
                         <div class="badge bg-primary mb-2">{{ article.category.name }}</div>
@@ -83,7 +83,7 @@
                             {% if article.featured_image %}
                                 <img src="{{ article.featured_image.url }}" class="img-fluid rounded-start h-100 object-fit-cover" alt="{{ article.title }}">
                             {% else %}
-                                <img src="{% static 'news/images/placeholder.jpg' %}" class="img-fluid rounded-start h-100 object-fit-cover" alt="Placeholder">
+                                <img src="{% static 'news/images/placeholder-image.svg' %}" class="img-fluid rounded-start h-100 object-fit-cover" alt="Placeholder">
                             {% endif %}
                         </div>
                         <div class="col-md-8">
