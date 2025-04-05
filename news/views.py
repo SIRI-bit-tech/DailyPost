@@ -322,7 +322,7 @@ def privacy_policy_view(request):
 
 # Terms of Service Page
 def terms_of_service_view(request):
-    return render(request, 'news/terms_of_service.html', {
+    return render(request, 'news/terms.html', {
         'meta_title': 'Terms of Service | The Daily Record Post',
         'meta_description': 'The Daily Record Post terms of service and usage agreement.',
     })
