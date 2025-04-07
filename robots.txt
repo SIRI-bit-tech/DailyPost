@@ -1,0 +1,10 @@
+ 
+Allow: /
+Disallow: /admin/
+Disallow: /static/admin/
+Disallow: /media/admin/
+Disallow: /accounts/
+Disallow: /search/
+
+# Sitemap location
+Sitemap:https://dailypost.up.railway.app//sitemap.xml

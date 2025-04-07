@@ -3,12 +3,50 @@
 
 {% block title %}{{ article.meta_title|default:article.title }} | The Daily Record Post{% endblock %}
 
+{% block meta_description %}{{ article.meta_description }}{% endblock %}
+
+{% block meta_keywords %}{{ article.meta_keywords }}{% endblock %}
+
+{% block og_title %}{{ article.title }}{% endblock %}
+
+{% block og_description %}{{ article.meta_description }}{% endblock %}
+
 {% block og_image %}
     {% if article.featured_image %}
         {{ request.scheme }}://{{ request.get_host }}{{ article.featured_image.url }}
     {% else %}
         {{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}
     {% endif %}
+{% endblock %}
+
+{% block extra_structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{{ article.title }}",
+    "image": "{{ article.featured_image.url }}",
+    "datePublished": "{{ article.published_date|date:'c' }}",
+    "dateModified": "{{ article.updated_date|date:'c' }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ article.author.get_full_name|default:article.author.username }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "The Daily Record Post",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}"
+        }
+    },
+    "description": "{{ article.meta_description }}",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ request.build_absolute_uri }}"
+    }
+}
+</script>
 {% endblock %}
 
 {% block content %}
@@ -229,35 +267,4 @@
         </div>
     </section>
 </article>
-{% endblock %}
-
-{% block extra_js %}
-<!-- Schema.org Structured Data for SEO -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": "{{ article.title }}",
-    "description": "{{ article.summary|striptags }}",
-    "image": "{% if article.featured_image %}{{ request.scheme }}://{{ request.get_host }}{{ article.featured_image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}{% endif %}",
-    "datePublished": "{{ article.published_date|date:'c' }}",
-    "dateModified": "{{ article.updated_date|date:'c' }}",
-    "author": {
-        "@type": "Person",
-        "name": "{{ article.author }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "The Daily Record Post",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'news/images/logo.png' %}"
-        }
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ request.build_absolute_uri }}"
-    }
-}
-</script>
 {% endblock %}
