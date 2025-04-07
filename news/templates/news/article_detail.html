@@ -30,7 +30,7 @@
     "dateModified": "{{ article.updated_date|date:'c' }}",
     "author": {
         "@type": "Person",
-        "name": "{{ article.author.get_full_name|default:article.author.username }}"
+        "name": "{{ article.author.user.get_full_name|default:article.author.user.username }}"
     },
     "publisher": {
         "@type": "Organization",
