@@ -196,6 +196,7 @@ SUMMERNOTE_CONFIG = {
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
             ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
@@ -204,9 +205,17 @@ SUMMERNOTE_CONFIG = {
         ],
         'width': '100%',
         'height': '480',
+        'fontNames': [
+            'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana',
+            'Merriweather', 'Roboto', 'Lato', 'Open Sans', 'Playfair Display', 'Montserrat', 'Source Sans Pro', 'Oswald', 'PT Sans', 
+            'Raleway', 'Nunito', 'Poppins', 'Ubuntu', 'Rubik', 'Noto Sans', 'Quicksand', 'Work Sans', 'Mulish', 'Inter',
+            'Georgia', 'Calibri', 'Trebuchet MS', 'Lucida Console', 'Lucida Sans Unicode', 'Comic Sans', 'Tisa', 'Fira Sans', 'PT Serif'
+        ],
+        'fontSizes': ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '36', '48', '72'],
     },
     'attachment_absolute_uri': True,
 }
+
 
 # Django Allauth Configuration
 AUTHENTICATION_BACKENDS = [
