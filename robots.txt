@@ -7,4 +7,4 @@ Disallow: /accounts/
 Disallow: /search/
 
 # Sitemap location
-Sitemap:https://dailypost.up.railway.app//sitemap.xml
+Sitemap: https://www.thedailyrecordpost.com/sitemap.xml
