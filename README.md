@@ -34,12 +34,12 @@ A modern Django-based news website with Cloudinary integration for media handlin
    python manage.py runserver
    ```
 
-## Deployment to Railway
+## Deployment to Render
 
 ### Prerequisites
 
-- Railway account
-- PostgreSQL database set up on Railway
+- [Render](https://render.com) account
+- PostgreSQL database set up on Render
 - Cloudinary account
 
 ### Deployment Steps
@@ -49,24 +49,36 @@ A modern Django-based news website with Cloudinary integration for media handlin
    python clean_and_check.py
    ```
 
-2. Create a new project on Railway
+2. Sign up for a Render account if you don't have one already
 
-3. Add the PostgreSQL plugin
+3. Create a new Web Service on Render
+   - Connect your GitHub repository
+   - Select the branch to deploy
+   - Use "Python" as the Environment
+   - Set the Build Command: `./build.sh`
+   - Set the Start Command: `gunicorn dailyrecord.wsgi:application`
 
-4. Set up the following environment variables in Railway:
+4. Set up the following environment variables in Render dashboard:
    - `SECRET_KEY` - Secure random string for Django
    - `DEBUG` - Set to False
-   - `ALLOWED_HOSTS` - Your app's domain (e.g., yourdomain.com,www.yourdomain.com)
-   - `DATABASE_URL` - This should be automatically set by Railway PostgreSQL plugin
+   - `ALLOWED_HOSTS` - Your app's domain (e.g., yourdomain.onrender.com)
    - `CLOUDINARY_CLOUD_NAME` - From your Cloudinary account
    - `CLOUDINARY_API_KEY` - From your Cloudinary account
    - `CLOUDINARY_API_SECRET` - From your Cloudinary account
    - Email configuration variables
    - Other settings from your .env file
 
-5. Connect your GitHub repository to Railway
+5. Create a PostgreSQL database in Render
+   - In your Render dashboard, go to "New +" and select "PostgreSQL"
+   - Give it a name and create it
+   - Render will automatically provide the `DATABASE_URL` to your web service
 
-6. Deploy your app!
+6. Create a Redis instance in Render (if needed)
+   - In your Render dashboard, go to "New +" and select "Redis"
+   - Give it a name and create it
+   - Render will automatically provide the `REDIS_URL` to your web service
+
+7. Deploy your app!
 
 ### Post-Deployment
 
