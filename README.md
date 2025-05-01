@@ -99,6 +99,11 @@ A modern Django-based news website with Cloudinary integration for media handlin
 - `news/views.py` - View controllers
 - `templates/` - HTML templates
 
+## Website Preview
+https://www.thedailyrecordpost.com
+![ScreenShot Tool -20250408094348](https://github.com/user-attachments/assets/34d85a6f-8859-4735-8750-f5fa98f249a0)
+![ScreenShot Tool -20250408094647](https://github.com/user-attachments/assets/c59d509e-7d5c-47a1-b585-d664a93f9bb6)
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
