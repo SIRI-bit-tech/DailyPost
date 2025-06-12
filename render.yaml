@@ -2,8 +2,8 @@ services:
   - type: web
     name: dailyrecord
     runtime: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt && python manage.py collectstatic --noinput
-    startCommand: gunicorn dailyrecord.wsgi:application
+    buildCommand: ./build.sh
+    startCommand: ./start.sh
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
@@ -30,4 +30,4 @@ services:
 
 databases:
   - name: dailyrecord_db
-    plan: free 
+    plan: free
