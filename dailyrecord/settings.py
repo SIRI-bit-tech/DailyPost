@@ -296,7 +296,6 @@ if REDIS_URL:
             'BACKEND': 'django.core.cache.backends.redis.RedisCache',
             'LOCATION': REDIS_URL,
             'OPTIONS': {
-                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
                 'CONNECTION_POOL_KWARGS': {
                     'max_connections': 50,
                     'retry_on_timeout': True,
@@ -304,6 +303,8 @@ if REDIS_URL:
                 'SOCKET_CONNECT_TIMEOUT': 5,
                 'SOCKET_TIMEOUT': 5,
             },
+            'KEY_PREFIX': 'dailyrecord',
+            'TIMEOUT': 60 * 15,  # 15 minutes
         }
     }
     # Session engine
