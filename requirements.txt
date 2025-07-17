@@ -1,73 +1,71 @@
 # Core Django
-Django==4.2.7
-asgiref==3.8.1
-sqlparse==0.5.3
+Django
+asgiref
+sqlparse
 
 # Database
-dj-database-url==2.1.0
-psycopg2-binary==2.9.9
+dj-database-url
+psycopg2-binary
 
 # Authentication
-django-allauth==0.58.2
-PyJWT==2.10.1
-oauthlib==3.2.2
-requests-oauthlib==2.0.0
-python3-openid==3.2.0
+django-allauth
+PyJWT
+oauthlib
+requests-oauthlib
+python3-openid
 
 # Forms and UI
-django-crispy-forms==2.0
-crispy-bootstrap5==0.7
-django-summernote==0.8.20.0
+django-crispy-forms
+crispy-bootstrap5
+django-summernote
 
 # Static files and media
-whitenoise==6.5.0
-django-compressor==4.5.1
-cloudinary==1.43.0
-django-cloudinary-storage==0.3.0
+whitenoise
+django-compressor
+cloudinary
+django-cloudinary-storage
 
 # Caching and sessions
-redis==5.0.1
-django-redis==5.4.0
+redis
+django-redis
 
 # Utilities
-python-dotenv==1.1.0
-django-extensions==3.2.3
-django-robots==5.0
-django-taggit==4.0.0
-django-timezone-field==7.1
+python-dotenv
+django-extensions
+django-robots
+django-taggit
+django-timezone-field
 
 # API (if needed)
-djangorestframework==3.14.0
-
-
+djangorestframework
 
 # Production server
-gunicorn==21.2.0
+gunicorn
 
 # Image processing
-Pillow==10.1.0
+Pillow
 
 # Security
-cryptography==44.0.2
-pyOpenSSL==25.0.0
+cryptography
+pyOpenSSL
 
 # HTTP and networking
-requests==2.32.3
-urllib3==2.0.7
-certifi==2025.1.31
+requests
+urllib3
+certifi
 
 # Text processing
-bleach==6.2.0
-python-slugify==8.0.4
-text-unidecode==1.3
+bleach
+python-slugify
+text-unidecode
 
 # Date and time
-python-dateutil==2.9.0.post0
-pytz==2025.2
-tzdata==2025.2
+python-dateutil
+pytz
+tzdata
 
 # Other utilities
-click==8.1.8
-packaging==24.2
-six==1.17.0
-typing_extensions==4.13.0
+click
+packaging
+six
+typing_extensions
