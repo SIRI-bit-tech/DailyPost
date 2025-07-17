@@ -4,6 +4,9 @@ set -o errexit
 echo "Running migrations..."
 python manage.py migrate --no-input
 
+echo "Creating cache table (if using database cache)..."
+python manage.py createcachetable --noinput || true
+
 echo "Creating superuser (if needed)..."
 python manage.py createsu
 
