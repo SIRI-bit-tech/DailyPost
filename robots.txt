@@ -1,4 +1,4 @@
- 
+User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /static/admin/
@@ -6,5 +6,5 @@ Disallow: /media/admin/
 Disallow: /accounts/
 Disallow: /search/
 
-# Sitemap location
+Host: https://www.thedailyrecordpost.com
 Sitemap: https://www.thedailyrecordpost.com/sitemap.xml

@@ -7,6 +7,9 @@ python manage.py migrate --no-input
 echo "Creating cache table (if using database cache)..."
 python manage.py createcachetable --noinput || true
 
+echo "Updating site domain to production domain..."
+python manage.py update_site_domain
+
 echo "Creating superuser (if needed)..."
 python manage.py createsu
 
