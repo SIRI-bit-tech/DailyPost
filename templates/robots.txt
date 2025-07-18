@@ -5,4 +5,4 @@ Disallow: /media/admin/
 Disallow: /accounts/
 Disallow: /search/
 
-Sitemap: https://www.thedailyrecordpost.com/sitemap.xml
+Sitemap: https://www.thedailyrecordpost.com/sitemap.xml 

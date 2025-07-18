@@ -226,11 +226,12 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = int(os.environ.get('SITE_ID', 1))
 
 # SEO Settings
-ROBOTS_USE_HOST = True
+ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = True
 ROBOTS_SITEMAP_URLS = [
-    '/sitemap.xml',
+    'https://www.thedailyrecordpost.com/sitemap.xml',
 ]
+ROBOTS_CACHE_TIMEOUT = 60 * 60 * 24  # 24 hours
 
 # Email settings
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
