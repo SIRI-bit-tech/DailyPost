@@ -5,5 +5,4 @@ Disallow: /media/admin/
 Disallow: /accounts/
 Disallow: /search/
 
-Host: https://www.thedailyrecordpost.com
 Sitemap: https://www.thedailyrecordpost.com/sitemap.xml
